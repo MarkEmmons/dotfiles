@@ -1,57 +1,63 @@
-## setopts
-## add `|' to output redirections in the history
-setopt histallowclobber
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/mark/.oh-my-zsh
 
-## warning if file exists ('cat /dev/null > ~/.zshrc')
-setopt NO_clobber
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
 
-## don't warn me about bg processes when exiting
-setopt nocheckjobs
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
 
-## Allow comments even in interactive shells
-setopt interactivecomments
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=7
 
-## Allow piping to multiple outputs
-setopt MULTIOS
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-## Spell check commands
-setopt CORRECT
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git sudo thefuck archlinux tmux python)
+eval $(thefuck --alias)
 
-## If we have a glob this will expand it
-setopt GLOB_COMPLETE
-
-## 10 second wait if you do something that will delete everything.  I wish I'd had this before...
-setopt RM_STAR_WAIT
-
-## Use magic
-setopt ZLE
-setopt IGNORE_EOF
-
-## If I could disable Ctrl-s completely I would!
-setopt NO_FLOW_CONTROL
-
-## Disable beeps
-setopt NO_BEEP
-
-## Case insensitive globbing
-setopt NO_CASE_GLOB
-
-## Be Reasonable!
-setopt NUMERIC_GLOB_SORT
-
-## I don't know why I never set this before.
-setopt EXTENDED_GLOB
-
-## hows about arrays be awesome?
-setopt RC_EXPAND_PARAM
-
-## Load zsh theme
-#autoload -U colors && colors
-#PROMPT="%{$fg[grey]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[white]%}%1~ %{$reset_color%}%"
-#RPROMPT="[%{$fg_no_bold[green]%}%?%{$reset_color%}]"
-
+# User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 ## alt-S inserts sudo
 function prepend-sudo {
