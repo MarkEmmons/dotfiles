@@ -184,5 +184,5 @@ client.focused #ff1616 #ff0000 #fdf6e3 #ff1616
     }
 
 
-exec --no-startup-id urxvt
+exec --no-startup-id xterm
 # Done
