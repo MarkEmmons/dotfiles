@@ -144,6 +144,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Open OpenGL programs in floating windows
+for_window [title="^i3GLUT$"] floating enable
+
 # Workspace names
 
     set $WS1 1 

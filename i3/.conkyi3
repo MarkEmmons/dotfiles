@@ -7,9 +7,10 @@ TEXT
 
 [\
 # Spotify now-playing
-{"full_text":"${execpi 300 ~/.bin/spotify-nowplaying.sh}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+{"full_text":"${execp ~/.bin/spotify-nowplaying.sh}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
 
 # iface ip address
+#{"full_text":"${exec 300 ~/.bin/expressvpn-status.sh}","color":"\#298A08","seperator":true,"separator_block_width":35},\
 {"full_text":"${if_existing /sys/class/net/enp4s0/operstate up}${addr enp4s0}${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
 {"full_text":"${if_existing /sys/class/net/wlp3s0b1/operstate up}${addr wlp3s0b1}${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
 
@@ -25,8 +26,8 @@ TEXT
 
 # Battery:
 {"full_text":"","color":"\#DEDEDE","separator":true,"separator_block_width":35},\
-{"full_text":"${if_match ${battery_percent BAT0}>50}${battery_bar}${endif}","color":"\#298A08","separator":true,"separator_block_width":35},\
-{"full_text":"${if_match ${battery_percent BAT0}>10}${if_match ${battery_percent BAT0}<50}${battery_bar}${endif}${endif}","color":"\#DBA901","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${battery_percent BAT0}>=50}${battery_bar}${endif}","color":"\#298A08","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${battery_percent BAT0}>=10}${if_match ${battery_percent BAT0}<50}${battery_bar}${endif}${endif}","color":"\#DBA901","separator":true,"separator_block_width":35},\
 {"full_text":"${if_match ${battery_percent BAT0}<10}${battery_bar}${endif}","color":"\#DF0101","separator":true,"separator_block_width":35},\
 
 # Volume:
