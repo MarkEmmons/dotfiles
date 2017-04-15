@@ -16,9 +16,9 @@ TEXT
 
 # Check updates
 {"full_text":"","color":"\#ff1616","separator":true,"separator_block_width":35},\
-{"full_text":"${if_match ${execpi 300 checkupdates | wc -l}>1}${execpi 300 checkupdates | wc -l} new packages${endif}","color":"\#ff1616","separator":true,"separator_block_width":35},\
-{"full_text":"${if_match ${execpi 300 checkupdates | wc -l}==1}1 new package${endif}","color":"\#ff1616","separator":true,"separator_block_width":35},\
-{"full_text":"${if_match ${execpi 300 checkupdates | wc -l}==0}Nothing to update${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${execpi 30 checkupdates | wc -l}>1}${execpi 300 checkupdates | wc -l} new packages${endif}","color":"\#ff1616","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${execpi 30 checkupdates | wc -l}==1}1 new package${endif}","color":"\#ff1616","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${execpi 30 checkupdates | wc -l}==0}Nothing to update${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
 
 # Memory:
 {"full_text":"","color":"\#DEDEDE","separator":true,"separator_block_width":35},\
