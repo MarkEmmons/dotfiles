@@ -3,48 +3,46 @@
 install_dotfiles(){
 
 	# Install Pathogen
-	mkdir -p /home/$SUDO_USER/.vim/autoload /home/$SUDO_USER/.vim/bundle && \
-	curl -LSso /home/$SUDO_USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+	mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
+	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	# Install YCM
-	cd /home/$SUDO_USER/.vim/bundle && \
+	cd $HOME/.vim/bundle && \
 	git clone https://github.com/Valloric/YouCompleteMe.git
 	
-	cd /home/$SUDO_USER/.vim/bundleYouCompleteMe
+	cd $HOME/.vim/bundleYouCompleteMe
 	git submodule update --init --recursive
 	python2 install.py --clang-completer --system-libclang
 
 	# Install Syntastic
-	cd /home/$SUDO_USER/.vim/bundle && \
+	cd $HOME/.vim/bundle && \
 	git clone https://github.com/scrooloose/syntastic.git
 
 	# Install Nerdtree
-	cd /home/$SUDO_USER/.vim/bundle && \
+	cd $HOME/.vim/bundle && \
 	git clone https://github.com/scrooloose/nerdtree.git
 
 	# Install Tagbar
-	cd /home/$SUDO_USER/.vim/bundle && \
+	cd $HOME/.vim/bundle && \
 	git clone https://github.com/majutsushi/tagbar.git 
 
 	# Install Vim-airline
-	cd /home/$SUDO_USER/.vim/bundle && \
+	cd $HOME/.vim/bundle && \
 	git clone https://github.com/vim-airline/vim-airline.git
 
 	# Install Vim-airline themes
-	cd /home/$SUDO_USER/.vim/bundle && \
+	cd $HOME/.vim/bundle && \
 	git clone https://github.com/vim-airline/vim-airline-themes.git
 
 	# Stow dotfiles
-	cd /home/$SUDO_USER/dotfiles
-	stow chromium
-	stow i3
-	stow vim
-	stow x
-	stow zsh
-	cd /home/$SUDO_USER
+	stow $HOME/dotfiles/chromium
+	stow $HOME/dotfiles/i3
+	stow $HOME/dotfiles/vim
+	stow $HOME/dotfiles/x
+	stow $HOME/dotfiles/zsh
 	
 	# Set background image
-	feh --bg-scale /home/$SUDO_USER/wallpapers/Nature.png
+	feh --bg-scale $HOME/wallpapers/Nature.png
 
 	# Install ohmyzsh
 	wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
@@ -66,6 +64,12 @@ update_dotfiles(){
 	for i in $HOME/.vim/bundle/*; do git -C $i pull; done
 	
 }
+
+# Do not run this script as root
+if [[ $EUID -eq 0 ]]; then
+	echo "error: this script should not be run as root."
+	exit 1
+fi
 
 # User must provide exactly one argument
 if [[ $# -ne 1 ]]; then
