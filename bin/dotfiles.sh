@@ -10,7 +10,7 @@ install_dotfiles(){
 	cd $HOME/.vim/bundle && \
 	git clone https://github.com/Valloric/YouCompleteMe.git
 	
-	cd YouCompleteMe
+	cd $HOME/.vim/bundleYouCompleteMe
 	git submodule update --init --recursive
 	python2 install.py --clang-completer --system-libclang
 
