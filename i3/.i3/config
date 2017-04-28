@@ -160,32 +160,50 @@ for_window [title="^i3GLUT$"] floating enable
 	set $WS9 9  
 	set $WS10 0  
 
+# Colors set from Xresources
+set_from_resource	$background	background
+set_from_resource	$foreground	foreground
+set_from_resource	$color0		color0
+set_from_resource 	$color1 	color1
+set_from_resource 	$color2 	color2
+set_from_resource 	$color3 	color3
+set_from_resource 	$color4 	color4
+set_from_resource 	$color5 	color5
+set_from_resource 	$color6		color6
+set_from_resource	$color7		color7
+set_from_resource	$color8		color8
+set_from_resource	$color9		color9
+set_from_resource	$color10	color10
+set_from_resource	$color11	color11
+set_from_resource	$color12	color12
+set_from_resource	$color13	color13
+set_from_resource	$color14	color14
+set_from_resource	$color15	color15
+
 # colors
-client.focused #ff1616 #ff0000 #fdf6e3 #ff1616
+#client.focused #ff1616 #ff0000 #fdf6e3 #ff1616
 
 # Add conky to i3 bar
+bar {
+	strip_workspace_numbers yes
+	tray_output none
+	
+	status_command $HOME/dotfiles/bin/conky-i3
+	position top
+	font pango:Fantasque Sans Mono, Icons 12px
+	mode dock
 
-    bar {
-        strip_workspace_numbers yes
-        tray_output none
-        
-        status_command ~/dotfiles/bin/conky-i3
-        position top
-        font pango:Fantasque Sans Mono, Icons 12px
-        mode dock
+	colors {
+		background $background
+		statusline $foreground
 
-        colors {
-            background #161616
-            statusline #c0c0c0
-
-            # Colors           Border Background Title
-            focused_workspace  #ffffff #262626 #ffffff
-            active_workspace   #222222 #262626 #222222
-            inactive_workspace #222222 #262626 #222222
-            urgent_workspace   #222222 #262626 #222222
-        }
-    }
-
+		# Colors           Border Background Title
+		focused_workspace   $foreground $background $foreground $color2 $color2	
+		active_workspace    $foreground	$background	$foreground	$color4	$color4
+		inactive_workspace	$foreground	$background	$foreground	$color4	$color4
+		urgent_workspace	$foreground	$background	$foreground	$color4	$color4
+	}
+}
 
 exec --no-startup-id xterm
 # Done

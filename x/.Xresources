@@ -11,7 +11,57 @@ Xft.autohint: true
 !Xft.lcdfilter: lcddefault
 
 !xterm*font:         Hack-Regular
-!xterm*selectToClipboard: true
+Xterm*selectToClipboard: true
+XTerm*pointerColor: #16A085
+
+*background:            #272827
+*foreground:            #657b83
+*fading:                15
+*fadeColor:             black
+*cursorColor:           #16A085
+*pointerColorBackground:#2B2C2B
+*pointerColorForeground:#16A085
+
+! special
+*.foreground:   #bfbfbf
+*.background:   #162025
+*.cursorColor:  #bfbfbf
+
+! black
+*.color0:       #0f1619
+*.color8:       #5d6160
+
+! red
+*.color1:       #393843
+*.color9:       #662b37
+
+! green
+*.color2:       #75404b
+*.color10:      #39402e
+
+! yellow
+*.color3:       #39402e
+*.color11:      #393843
+
+! blue
+*.color4:       #56694d
+*.color12:      #75404b
+
+! magenta
+*.color5:       #4c584a
+*.color13:      #662b37
+
+! cyan
+*.color6:       #662b37
+*.color14:      #4c584a
+
+! white
+*.color7:       #bfbfbf
+*.color15:      #bfbfbf
+
+
+Xcursor.theme: Breeze
+Xcursor.size:  0
 
 ! --- ~/.Xresources ------------------------------------------------------------
 ! ------------------------------------------------------------------------------
@@ -20,61 +70,61 @@ Xft.autohint: true
 ! --- http://ciembor.github.com/4bit -------------------------------------------
 ! ------------------------------------------------------------------------------
 
-! --- special colors ---
-
-*background: #262626
-*foreground: #d9e6f2
-
-! --- standard colors ---
-
-! black
-*color0: #000000
-
-! bright_black
-*color8: #262626
-
-! red
-*color1: #9c8084
-
-! bright_red
-*color9: #ebe8e0
-
-! green
-*color2: #8f9978
-
-! bright_green
-*color10: #ebe8e0
-
-! yellow
-! *color3: #8f9978
-*color3: #9c8c78
-
-! bright_yellow
-*color11: #ebe8e0
-
-! blue
-*color4: #838c91
-
-! bright_blue
-*color12: #ebe8e0
-
-! magenta
-*color5: #8f8091
-
-! bright_magenta
-*color13: #ebe8e0
-
-! cyan
-*color6: #839984
-
-! bright_cyan
-*color14: #ebe8e0
-
-! white
-*color7: #a5a5a5
-
-! bright_white
-*color15: #ffffff
+!! --- special colors ---
+!
+!*background: #262626
+!*foreground: #d9e6f2
+!
+!! --- standard colors ---
+!
+!! black
+!*color0: #000000
+!
+!! bright_black
+!*color8: #262626
+!
+!! red
+!*color1: #9c8084
+!
+!! bright_red
+!*color9: #ebe8e0
+!
+!! green
+!*color2: #8f9978
+!
+!! bright_green
+!*color10: #ebe8e0
+!
+!! yellow
+!! *color3: #8f9978
+!*color3: #9c8c78
+!
+!! bright_yellow
+!*color11: #ebe8e0
+!
+!! blue
+!*color4: #838c91
+!
+!! bright_blue
+!*color12: #ebe8e0
+!
+!! magenta
+!*color5: #8f8091
+!
+!! bright_magenta
+!*color13: #ebe8e0
+!
+!! cyan
+!*color6: #839984
+!
+!! bright_cyan
+!*color14: #ebe8e0
+!
+!! white
+!*color7: #a5a5a5
+!
+!! bright_white
+!*color15: #ffffff
 
 
 ! ------------------------------------------------------------------------------
