@@ -42,6 +42,8 @@ install_dotfiles(){
 	stow x
 	stow zsh
 	cd $HOME
+	
+	feh --bg-scale $HOME/wallpapers/Nature.png
 
 	# Install ohmyzsh
 	sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
