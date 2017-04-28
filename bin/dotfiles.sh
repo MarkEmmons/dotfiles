@@ -3,48 +3,48 @@
 install_dotfiles(){
 
 	# Install Pathogen
-	mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
-	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+	mkdir -p /home/$SUDO_USER/.vim/autoload /home/$SUDO_USER/.vim/bundle && \
+	curl -LSso /home/$SUDO_USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	# Install YCM
-	cd $HOME/.vim/bundle && \
+	cd /home/$SUDO_USER/.vim/bundle && \
 	git clone https://github.com/Valloric/YouCompleteMe.git
 	
-	cd $HOME/.vim/bundleYouCompleteMe
+	cd /home/$SUDO_USER/.vim/bundleYouCompleteMe
 	git submodule update --init --recursive
 	python2 install.py --clang-completer --system-libclang
 
 	# Install Syntastic
-	cd $HOME/.vim/bundle && \
+	cd /home/$SUDO_USER/.vim/bundle && \
 	git clone https://github.com/scrooloose/syntastic.git
 
 	# Install Nerdtree
-	cd $HOME/.vim/bundle && \
+	cd /home/$SUDO_USER/.vim/bundle && \
 	git clone https://github.com/scrooloose/nerdtree.git
 
 	# Install Tagbar
-	cd $HOME/.vim/bundle && \
+	cd /home/$SUDO_USER/.vim/bundle && \
 	git clone https://github.com/majutsushi/tagbar.git 
 
 	# Install Vim-airline
-	cd $HOME/.vim/bundle && \
+	cd /home/$SUDO_USER/.vim/bundle && \
 	git clone https://github.com/vim-airline/vim-airline.git
 
 	# Install Vim-airline themes
-	cd $HOME/.vim/bundle && \
+	cd /home/$SUDO_USER/.vim/bundle && \
 	git clone https://github.com/vim-airline/vim-airline-themes.git
 
 	# Stow dotfiles
-	cd $HOME/dotfiles
+	cd /home/$SUDO_USER/dotfiles
 	stow chromium
 	stow i3
 	stow vim
 	stow x
 	stow zsh
-	cd $HOME
+	cd /home/$SUDO_USER
 	
 	# Set background image
-	feh --bg-scale $HOME/wallpapers/Nature.png
+	feh --bg-scale /home/$SUDO_USER/wallpapers/Nature.png
 
 	# Install ohmyzsh
 	wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
