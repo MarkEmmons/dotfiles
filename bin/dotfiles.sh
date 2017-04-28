@@ -43,6 +43,7 @@ install_dotfiles(){
 	stow zsh
 	cd $HOME
 	
+	# Set background image
 	feh --bg-scale $HOME/wallpapers/Nature.png
 
 	# Install ohmyzsh
