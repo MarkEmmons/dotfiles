@@ -47,12 +47,15 @@ install_dotfiles(){
 	feh --bg-scale $HOME/wallpapers/Nature.png
 
 	# Install ohmyzsh
-	sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-	rm .zshrc
+	wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+	sed 's|env zsh||' -i install.sh
+	cat install.sh | bash
+	rm -rf .zshrc install.sh
 	mv .zshrc.pre-oh-my-zsh .zshrc
 
 }
 
+# Update Vim plugins
 update_dotfiles(){
 
 	# Update YCM submodules
@@ -64,12 +67,13 @@ update_dotfiles(){
 	
 }
 
-# Update or install
+# User must provide exactly one argument
 if [[ $# -ne 1 ]]; then
-	echo "ERROR: Expected exactly 1 argument got $#."
+	echo "error: expected exactly 1 argument got $#."
 	exit 1
 fi
 
+# Update or install
 case $1 in
 	-i|--install)
 		echo "Installing dotfiles..."
