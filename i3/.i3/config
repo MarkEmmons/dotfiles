@@ -169,7 +169,7 @@ client.focused #ff1616 #ff0000 #fdf6e3 #ff1616
         strip_workspace_numbers yes
         tray_output none
         
-        status_command ~/.bin/conky-i3
+        status_command ~/dotfiles/bin/conky-i3
         position top
         font pango:Fantasque Sans Mono, Icons 12px
         mode dock

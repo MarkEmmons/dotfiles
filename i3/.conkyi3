@@ -7,7 +7,7 @@ TEXT
 
 [\
 # Spotify now-playing
-{"full_text":"${execp ~/.bin/spotify-nowplaying.sh}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+{"full_text":"${execp ~/dotfiles/bin/spotify-nowplaying.sh}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
 
 # iface ip address
 {"full_text":"${if_existing /sys/class/net/enp4s0/operstate up}${addr enp4s0}${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\

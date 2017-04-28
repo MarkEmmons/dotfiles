@@ -6,8 +6,8 @@
 STATUS=$(expressvpn status)
 
 if [ "$STATUS" == "Not connected." ]; then
-    echo "$STATUS" >> ~/.bin/disconnected.txt
+    echo "$STATUS" >> $HOME/dotfiles/bin/disconnected.txt
 else
-    echo "$STATUS" | cut -c14- >> ~/.bin/connected.txt
-    cat ~/.bin/connected.txt
+    echo "$STATUS" | cut -c14- >> $HOME/.bin/connected.txt
+    cat $HOME/dotfiles/bin/connected.txt
 fi
