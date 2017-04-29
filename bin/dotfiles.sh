@@ -14,7 +14,7 @@ install_dotfiles(){
 	https://github.com/vim-airline/vim-airline.git
 	https://github.com/vim-airline/vim-airline-themes.git )
 
-	# Install via some parallel trickery
+	# Install plugins via parallel trickery
 	cd $HOME/.vim/bundle && \
 	printf "%s\n" "${PLUGINS[@]}" | parallel git clone {}
 
