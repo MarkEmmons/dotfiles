@@ -6,33 +6,29 @@ install_dotfiles(){
 	mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-	# Install YCM
-	cd $HOME/.vim/bundle && \
-	git clone https://github.com/Valloric/YouCompleteMe.git
 	
-	cd $HOME/.vim/bundleYouCompleteMe
-	git submodule update --init --recursive
-	python2 install.py --clang-completer --system-libclang
 
 	# Install Syntastic
 	cd $HOME/.vim/bundle && \
-	git clone https://github.com/scrooloose/syntastic.git
+	git clone https://github.com/scrooloose/syntastic.git && \
 
 	# Install Nerdtree
-	cd $HOME/.vim/bundle && \
-	git clone https://github.com/scrooloose/nerdtree.git
+	git clone https://github.com/scrooloose/nerdtree.git && \
 
 	# Install Tagbar
-	cd $HOME/.vim/bundle && \
-	git clone https://github.com/majutsushi/tagbar.git 
+	git clone https://github.com/majutsushi/tagbar.git && \
 
 	# Install Vim-airline
-	cd $HOME/.vim/bundle && \
-	git clone https://github.com/vim-airline/vim-airline.git
+	git clone https://github.com/vim-airline/vim-airline.git && \
 
 	# Install Vim-airline themes
-	cd $HOME/.vim/bundle && \
-	git clone https://github.com/vim-airline/vim-airline-themes.git
+	git clone https://github.com/vim-airline/vim-airline-themes.git && \
+
+	# Install YCM
+	git clone https://github.com/Valloric/YouCompleteMe.git && \
+	cd YouCompleteMe && \
+	git submodule update --init --recursive && \
+	python2 install.py --clang-completer --system-libclang
 
 	# Stow dotfiles
 	stow $HOME/dotfiles/chromium
