@@ -6,8 +6,6 @@ install_dotfiles(){
 	mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-	
-
 	# Install Syntastic
 	cd $HOME/.vim/bundle && \
 	git clone https://github.com/scrooloose/syntastic.git && \
@@ -31,11 +29,13 @@ install_dotfiles(){
 	python2 install.py --clang-completer --system-libclang
 
 	# Stow dotfiles
-	stow $HOME/dotfiles/chromium
-	stow $HOME/dotfiles/i3
-	stow $HOME/dotfiles/vim
-	stow $HOME/dotfiles/x
-	stow $HOME/dotfiles/zsh
+	cd $HOME/dotfiles/
+	stow chromium
+	stow i3
+	stow vim
+	stow x
+	stow zsh
+	cd
 	
 	# Set background image
 	feh --bg-scale $HOME/wallpapers/Nature.png
