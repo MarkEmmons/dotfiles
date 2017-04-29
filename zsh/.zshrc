@@ -33,6 +33,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 export LD_LIBRARY_PATH=/usr/local/lib
+export RHISK_COMM="zenbu"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
