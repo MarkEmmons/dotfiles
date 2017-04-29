@@ -6,25 +6,20 @@ install_dotfiles(){
 	mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-	# Install Syntastic
+	# Vim Plugins
+	PLUGINS=( https://github.com/Valloric/YouCompleteMe.git
+	https://github.com/scrooloose/syntastic.git
+	https://github.com/scrooloose/nerdtree.git
+	https://github.com/majutsushi/tagbar.git
+	https://github.com/vim-airline/vim-airline.git
+	https://github.com/vim-airline/vim-airline-themes.git )
+
+	# Install via some parallel trickery
 	cd $HOME/.vim/bundle && \
-	git clone https://github.com/scrooloose/syntastic.git && \
-
-	# Install Nerdtree
-	git clone https://github.com/scrooloose/nerdtree.git && \
-
-	# Install Tagbar
-	git clone https://github.com/majutsushi/tagbar.git && \
-
-	# Install Vim-airline
-	git clone https://github.com/vim-airline/vim-airline.git && \
-
-	# Install Vim-airline themes
-	git clone https://github.com/vim-airline/vim-airline-themes.git && \
+	printf "%s\n" "${PLUGINS[@]}" | parallel git clone {}
 
 	# Install YCM
-	git clone https://github.com/Valloric/YouCompleteMe.git && \
-	cd YouCompleteMe && \
+	cd $HOME/.vim/bundle/YouCompleteMe && \
 	git submodule update --init --recursive && \
 	python2 install.py --clang-completer --system-libclang
 
