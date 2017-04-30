@@ -11,6 +11,7 @@ install_dotfiles(){
 	https://github.com/scrooloose/syntastic.git
 	https://github.com/scrooloose/nerdtree.git
 	https://github.com/majutsushi/tagbar.git
+	https://github.com/airblade/vim-gitgutter.git
 	https://github.com/vim-airline/vim-airline.git
 	https://github.com/vim-airline/vim-airline-themes.git )
 
@@ -21,7 +22,7 @@ install_dotfiles(){
 	# Install YCM
 	cd $HOME/.vim/bundle/YouCompleteMe && \
 	git submodule update --init --recursive && \
-	python2 install.py --clang-completer --system-libclang
+	python2 install.py --clang-completer --system-libclang --tern-completer --racer-completer
 
 	# Stow dotfiles
 	cd $HOME/dotfiles/
