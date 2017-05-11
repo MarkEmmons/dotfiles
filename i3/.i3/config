@@ -16,7 +16,10 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
-font pango: Fantasque Sans Mono 12
+#font pango: Fantasque Sans Mono 12
+#font pango: lemon Mono 12
+#font -*-uushi-*-*-*-*-11-*-*-*-*-*-iso8859-1
+font --uushi-----11------iso8859-1
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -144,8 +147,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Open OpenGL programs in floating windows
-for_window [title="^i3GLUT$"] floating enable
+# Open programs in floating windows
+for_window [class="Leafpad"] floating enable
+
+# Custom keybindings
+bindsym $mod+n exec leafpad
+#bindsym $mod+Shift+l exec lock
 
 # Workspace names
 

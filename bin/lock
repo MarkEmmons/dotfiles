@@ -1,5 +1,5 @@
 #!/bin/bash
 
 scrot /tmp/screenshot.png
-convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png
-i3lock -i /tmp/screenshotblur.png
+convert /tmp/screenshot.png -blur 0x5 -annotate +0+160 "Enter passphrase to unlock." $HOME/dotfiles/bin/circlelockclear.png -gravity center -composite /tmp/screenshotblur.png
+i3lock -u -i /tmp/screenshotblur.png

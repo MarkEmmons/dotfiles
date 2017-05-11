@@ -24,8 +24,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo archlinux tmux python)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/dotfiles/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/dotfiles/bin"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
