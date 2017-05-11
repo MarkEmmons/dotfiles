@@ -22,7 +22,8 @@ install_dotfiles(){
 	# Install YCM
 	cd $HOME/.vim/bundle/YouCompleteMe && \
 	git submodule update --init --recursive && \
-	python2 install.py --clang-completer --system-libclang --tern-completer --racer-completer
+	python2 install.py --clang-completer --system-libclang --tern-completer --racer-completer &
+	disown
 
 	# Stow dotfiles
 	cd $HOME/dotfiles/
