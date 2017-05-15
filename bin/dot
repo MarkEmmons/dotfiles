@@ -28,6 +28,7 @@ install_dotfiles(){
 	# Stow dotfiles
 	cd $HOME/dotfiles/
 	stow chromium
+	stow feh
 	stow i3
 	stow vim
 	stow x
@@ -35,7 +36,7 @@ install_dotfiles(){
 	cd
 	
 	# Set background image
-	feh --bg-scale $HOME/wallpapers/Nature.png
+	#feh --bg-scale $HOME/wallpapers/Nature.png
 
 	# Install ohmyzsh
 	wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
