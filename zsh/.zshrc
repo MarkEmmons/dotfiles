@@ -72,7 +72,7 @@ zle -N prepend-sudo
   bindkey "$keyinfo[Control]s" prepend-sudo
 
 ## Start tmux in xterm
-[[ "$TERM" = "xterm" ]] && exec tmux
+[[ "$TERM" = "xterm" ]] && BTERM=$TERM && exec tmux && TERM=$BTERM && export $TERM
 
 ## copy with a progress bar.
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
