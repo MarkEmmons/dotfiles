@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-scale /home/mark/.wallpaper
+feh  --bg-scale $HOME/.wallpaper
