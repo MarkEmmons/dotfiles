@@ -7,21 +7,21 @@ install_dotfiles(){
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	# Vim Plugins
-	PLUGINS=( https://github.com/Valloric/YouCompleteMe.git
-	https://github.com/scrooloose/syntastic.git
-	https://github.com/scrooloose/nerdtree.git
-	https://github.com/majutsushi/tagbar.git
-	https://github.com/airblade/vim-gitgutter.git
-	https://github.com/vim-airline/vim-airline.git
-	https://github.com/vim-airline/vim-airline-themes.git )
+	PLUGINS=( valloric/YouCompleteMe
+	scrooloose/syntastic
+	scrooloose/nerdtree
+	majutsushi/tagbar
+	airblade/vim-gitgutter
+	vim-airline/vim-airline
+	vim-airline/vim-airline-themes )
 
 	# Install plugins via parallel trickery
 	cd $HOME/.vim/bundle && \
-	printf "%s\n" "${PLUGINS[@]}" | parallel git clone {}
+	printf "%s\n" "${PLUGINS[@]}" | parallel "git clone https://github.com/{}.git"
 
 	# Install YCM
 	cd $HOME/.vim/bundle/YouCompleteMe && \
-	git submodule update --init --recursive && \
+	#git submodule update --init --recursive && \
 	#python install.py --clang-completer --system-libclang --tern-completer --racer-completer &
 	#disown
 
