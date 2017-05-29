@@ -1,14 +1,14 @@
 !! Not necessary for high-res screens
-!Xft.autohint: false
-Xft.autohint: true
+Xft.autohint: false
+!Xft.autohint: true
 !! High Dots Per Inch: Display dependent, not sure yet
-!Xft.dpi: 96
-!! Keep true: Fixes high res images at low resolutions
-!Xft.antialias: true
-!Xft.rgba: rgb
-!Xft.hinting: true
-!Xft.hintstyle: hintslight
-!Xft.lcdfilter: lcddefault
+Xft.dpi: 96
+! Keep true: Fixes high res images at low resolutions
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
 Xterm*faceName: lemon
 !Xterm*font: lemon

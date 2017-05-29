@@ -197,7 +197,7 @@ bar {
 	
 	status_command $HOME/dotfiles/bin/conky-i3
 	position top
-	font pango:Fantasque Sans Mono, Icons 12px
+    font --lemon-----11------*-1
 	mode dock
 
 	colors {
