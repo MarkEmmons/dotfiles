@@ -72,7 +72,8 @@ zle -N prepend-sudo
   bindkey "$keyinfo[Control]s" prepend-sudo
 
 ## Start tmux in xterm
-[[ "$TERM" = "xterm" ]] && BTERM=$TERM && exec tmux && TERM=$BTERM && export $TERM
+[[ "$TERM" = "xterm" ]] && exec tmux
+[[ "$TERM" = "linux" ]] && alien_theme
 
 ## copy with a progress bar.
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
