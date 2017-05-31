@@ -1,23 +1,15 @@
-!! Not necessary for high-res screens
-Xft.autohint: false
-!Xft.autohint: true
-!! High Dots Per Inch: Display dependent, not sure yet
 Xft.dpi: 96
-! Keep true: Fixes high res images at low resolutions
 Xft.antialias: true
-Xft.rgba: rgb
 Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-Xterm*faceName: lemon
-!Xterm*font: lemon
-Xterm*faceSize: 10
-!Xterm.font: xft:lemon:size=12
-!Xterm.boldfont: false
-!Xterm*letterSpace: 0
+!XTerm*font: -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso10646-1
+XTerm*font: -gohu-gohufont-medium-r-normal--11-80-100-100-c-60-iso8859-1
 
-Xterm*selectToClipboard: true
+XTerm*selectToClipboard: true
 XTerm*pointerColor: #16A085
 
 ! special
@@ -106,71 +98,3 @@ XTerm*pointerColor: #16A085
 !
 !Xcursor.theme: Breeze
 !Xcursor.size:  0
-
-! --- ~/.Xresources ------------------------------------------------------------
-! ------------------------------------------------------------------------------
-! --- generated with 4bit Terminal Color Scheme Designer -----------------------
-! ------------------------------------------------------------------------------
-! --- http://ciembor.github.com/4bit -------------------------------------------
-! ------------------------------------------------------------------------------
-
-!! --- special colors ---
-!
-!*background: #262626
-!*foreground: #d9e6f2
-!
-!! --- standard colors ---
-!
-!! black
-!*color0: #000000
-!
-!! bright_black
-!*color8: #262626
-!
-!! red
-!*color1: #9c8084
-!
-!! bright_red
-!*color9: #ebe8e0
-!
-!! green
-!*color2: #8f9978
-!
-!! bright_green
-!*color10: #ebe8e0
-!
-!! yellow
-!! *color3: #8f9978
-!*color3: #9c8c78
-!
-!! bright_yellow
-!*color11: #ebe8e0
-!
-!! blue
-!*color4: #838c91
-!
-!! bright_blue
-!*color12: #ebe8e0
-!
-!! magenta
-!*color5: #8f8091
-!
-!! bright_magenta
-!*color13: #ebe8e0
-!
-!! cyan
-!*color6: #839984
-!
-!! bright_cyan
-!*color14: #ebe8e0
-!
-!! white
-!*color7: #a5a5a5
-!
-!! bright_white
-!*color15: #ffffff
-
-
-! ------------------------------------------------------------------------------
-! --- end of terminal colors section -------------------------------------------
-! ------------------------------------------------------------------------------
