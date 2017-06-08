@@ -1,6 +1,6 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 xbindkeys
 
-sh ~/.fehbg &
+wal -i "$(< "${HOME}/.cache/wal/wal")"
 
 exec i3

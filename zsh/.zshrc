@@ -72,6 +72,9 @@ zle -N prepend-sudo
 [[ -n "$keyinfo[Control]" ]] && \
   bindkey "$keyinfo[Control]s" prepend-sudo
 
+# Import colorscheme from 'wal'
+(wal -r &)
+
 ## Start tmux in xterm
 [[ "$TERM" = "xterm" ]] && exec tmux
 [[ "$TERM" = "linux" ]] && alien_theme

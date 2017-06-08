@@ -27,8 +27,7 @@ install_dotfiles(){
 
 	# Stow dotfiles
 	cd $HOME/dotfiles/
-	stow chromium
-	stow feh
+	mv chromium/chromium-flags.conf $HOME/.config/chromium
 	stow i3
 	stow vim
 	stow x
