@@ -45,7 +45,7 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+q kill
 
 # remove title-bar
-new_window 1pixel
+new_window pixel 3
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -fn "-gohu-gohufont-medium-r-normal--11-80-100-100-c-60-iso10646-1" \
@@ -208,3 +208,7 @@ bar {
 
 exec --no-startup-id xterm
 # Done
+
+gaps inner 2
+gaps outer 1
+smart_gaps on
