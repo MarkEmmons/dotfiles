@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mark/.oh-my-zsh
+export ZSH=/home/mark/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -25,8 +25,9 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo archlinux tmux python)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/dotfiles/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/dotfiles/bin:$(ruby -e 'print Gem.user_dir')/bin"
 export MANPATH="/usr/local/man:$MANPATH"
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,6 +43,9 @@ export RHISK_COMM="zenbu"
 # else
 #   export EDITOR='mvim'
 # fi
+
+#TMOUT=120
+#TRAPALRM() { pipes -t 4 }
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

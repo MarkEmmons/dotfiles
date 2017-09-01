@@ -13,6 +13,12 @@ set number
 "# Allow wrapping
 set whichwrap+=<,>,h,l,[,]
 
+"# Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 "## Found at https://www.reddit.com/r/vim/comments/y93r1/whats_the_latest_useful_thing_you_added_to_vimrc/
 "# FireFly
 set fillchars=vert:│    	" that's a vertical box-drawing character
