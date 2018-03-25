@@ -4,6 +4,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"# 80 char columns
+set colorcolumn=81
+set textwidth=80
+
 "# Enable mouse
 set mouse=a
 
