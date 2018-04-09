@@ -38,21 +38,22 @@ keystate_capslock = enable
 keystate_scrolllock= enable
 
 # Raise Volume
-"amixer -c 1 set Master 5+"
+"~/.i3/volume.sh +"
     m:0x0 + c:123
+    XF86AudioRaiseVolume
 
 # Lower Volume
-"amixer -c 1 set Master 5-"
+"~/.i3/volume.sh -"
     m:0x0 + c:122
+    XF86AudioLowerVolume
 
-# Mute
-"amixer -c 1 set Master toggle"
-    m:0x0 + c:121
-    
+## Mute
+#"amixer -c 1 set Master toggle"
+#    m:0x0 + c:121
 
 # Examples of commands:
 
-"xbindkeys_show" 
+"xbindkeys_show"
   control+shift + q
 
 # set directly keycode (here control + f with my keyboard)
