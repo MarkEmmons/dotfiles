@@ -25,7 +25,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo archlinux tmux python)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/dotfiles/bin:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:$HOME/dotfiles/bin:$(ruby -e 'print Gem.user_dir')/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
@@ -77,7 +77,7 @@ zle -N prepend-sudo
   bindkey "$keyinfo[Control]s" prepend-sudo
 
 # Import colorscheme from 'wal'
-(wal -r &)
+(cat ~/.cache/wal/sequences &)
 
 ## Start tmux in xterm
 [[ "$TERM" = "xterm" ]] && exec tmux
@@ -155,6 +155,7 @@ zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' completer _expand_alias _complete _approximate
 
 ## aliases ##
+alias redis="docker container exec -it redis_redis_1 redis-cli"
 
 ## translate
 alias u='translate -i'

@@ -5,8 +5,8 @@ set softtabstop=4
 set expandtab
 
 "# 80 char columns
-set colorcolumn=81
-set textwidth=80
+"set colorcolumn=81
+"set textwidth=80
 
 "# Enable mouse
 set mouse=a
@@ -118,3 +118,7 @@ let g:airline_theme='ubaryd'
 "# Keybindings
 :nmap \e :NERDTreeToggle<Cr>
 :nmap \t :TagbarToggle<Cr>
+
+let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
