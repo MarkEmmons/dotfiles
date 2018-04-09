@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Get colors set by pywal
 color0=$(xrdb -query -all | grep "*color0:" | sed "s/\*color0:\t//")
 color1=$(xrdb -query -all | grep "*color1:" | sed "s/\*color1:\t//")
 color2=$(xrdb -query -all | grep "*color2:" | sed "s/\*color2:\t//")
@@ -17,28 +18,6 @@ color13=$(xrdb -query -all | grep "*color13:" | sed "s/\*color13:\t//")
 color14=$(xrdb -query -all | grep "*color14:" | sed "s/\*color14:\t//")
 color15=$(xrdb -query -all | grep "*color15:" | sed "s/\*color15:\t//")
 
-# Workspaces
-workspaces() {
-
-    wrkspc=$(i3-msg -t get_workspaces | jq '.[].name' | sed s/\"// | sed s/\"// | sort -n)
-    #echo -n "%{A5:i3-msg -q workspace next:}%{A4:i3-msg -q workspace prev:}"
-    echo -n "%{Sf}"
-
-    for i in $wrkspc ; do
-    	focused=$(i3-msg -t get_workspaces | jq ".[] | select(.name==\"$i\").focused")
-    	urgent=$(i3-msg -t get_workspaces | jq ".[] | select(.name==\"$i\").urgent")
-    	if $focused ; then
-    		echo -n "%{B$color4 F$color7} $i %{B$color0 F$color7}"
-    	else
-    		if $urgent ; then
-    			echo -n "%{B$color7 F$color0}%{A:i3-msg -q workspace number $i:} $i %{A}%{B$color0 F$color7}"
-    		else
-    			echo -n %{B$color0 F$color4}%{A:"i3-msg -q workspace number $i":} $i %{B$color0 F$color7}%{A}
-    		fi
-    	fi
-    done
-
-}
 
 # IP Address
 ip_address() {
@@ -62,6 +41,7 @@ ip_address() {
     fi
 
     echo -n "%{F$color1}$IP_ADDR"
+    echo -n "%{F$color7}  --  "
 
 }
 
@@ -83,6 +63,13 @@ get_updates() {
 
 }
 
+# Spotify Now Playing
+now_playing() {
+
+    echo -n "%{c}%{F$color9}%{R}| $(~/dotfiles/bin/spotify-nowplaying.sh) |%{R}"
+
+}
+
 # Memory Usage
 memory_usage() {
 
@@ -95,45 +82,122 @@ memory_usage() {
     MEM="${MEM_U}/${MEM_T}G"
 
     echo -n "%{r}%{F$color3}$MEM"
+    echo -n "%{F$color7} | "
 
 }
 
-main() {
-    while true; do
+# Battery Level
+battery() {
 
-        # Workspaces
-        workspaces
-        echo -n "%{F$color7}  -- "
+    echo -n "%{F$color4}BAT: $(acpi | cut -d ' ' -f 4) "
+    echo -n "%{F$color7}| "
 
-        # Display IP Address
-        ip_address
-        echo -n "%{F$color7}  --  "
+}
 
-        # Display Updates for Pacman
-        get_updates
-        #echo -n "%{F$color7} | "
+# Volume Level
+volume() {
 
-        # Now Playing
-        echo -n "%{c}%{F$color9}%{R}| $(~/dotfiles/bin/spotify-nowplaying.sh) |%{R}"
+    echo -n "%{F$color5}VOL: $(amixer get Master | grep "Mono:" | \
+        cut -d ' ' -f 6,8 | sed 's|\[||' | sed 's|\]||') "
 
-        # Display Memory Usage
-        memory_usage
-        echo -n "%{F$color7} | "
+    echo -n "%{F$color7}| "
 
-        # Battery
-        echo -n "%{F$color4}BAT: $(acpi | cut -d ' ' -f 4) "
-        echo -n "%{F$color7}| "
+}
 
-        # Volume
-        echo -n "%{F$color5}VOL: $(amixer get Master | grep "Mono:" | cut -d ' ' -f 6,8 | sed 's|\[||' | sed 's|\]||') "
+# Date and Time
+clock() {
 
-        echo -n "%{F$color7}| "
+    echo -n "%{F$color6}$(date +%m:%d:%y:%H:%M:%S)"
 
-        # Time
-        echo "%{F$color6}$(date +%m:%d:%y:%H:%M:%S)"
+}
 
-        #wait
+# Generate workspaces and bar for each monitor
+workspaces() {
+
+    read BAR
+    while [[ true ]]; do
+
+        i=0
+        WORKSPACES=$(i3-msg -t get_workspaces | jq -r '.[] | "\(.name) \(.output)"')
+        MONITORS=$(xrandr | grep " connected" | awk '{print $1}')
+
+        # Generate unique workspaces for each monitor
+        for m in $MONITORS; do
+
+            # Specify monitor for output
+            echo -n "%{S${i}}%{l}" && i=$(($i + 1))
+
+            # Current monitor's workspaces
+            CURRENT_WS=$(echo "$WORKSPACES" | grep "$m" | awk '{print $1}')
+
+            # Generate format string for each workspace
+            for w in $CURRENT_WS; do
+
+                # Is this workspace focused or urgent?
+                FOCUSED=$(i3-msg -t get_workspaces | jq ".[] | select(.name==\"$w\").focused")
+            	URGENT=$(i3-msg -t get_workspaces | jq ".[] | select(.name==\"$w\").urgent")
+
+                # Generate string for focused, urgent, or normal workspace
+                if $FOCUSED ; then
+            		echo -n "%{B$color4 F$color7} $w %{B$color0 F$color7}"
+            	else
+            		if $URGENT ; then
+            			echo -n "%{B$color7 F$color0}%{A:i3-msg -q workspace number $w:} $w %{A}%{B$color0 F$color7}"
+            		else
+            			echo -n %{B$color0 F$color4}%{A:"i3-msg -q workspace number $w":} $w %{B$color0 F$color7}%{A}
+            		fi
+            	fi
+
+            done # End for w in $CURRENT_WS
+
+            # Finish bar for current monitor
+            echo -n "%{F$color7}  -- "
+            echo -n "$BAR"
+
+        done # End for m in $MONITORS
+
+        echo ""
+        sleep 0.1
+        read BAR
+
     done
+
 }
 
-main | lemonbar -b -f "gohu 11" -B $color0 -F $color7 -g x15 -p | sh
+# Functions are called through admiral
+case $1 in
+
+    -i|--ip_address)
+        ip_address
+        ;;
+
+    -u|--updates)
+        get_updates
+        ;;
+
+    -n|--now_playing)
+        now_playing
+        ;;
+
+    -m|--memory)
+        memory_usage
+        ;;
+
+    -b|--battery)
+        battery
+        ;;
+
+    -v|--volume)
+        volume
+        ;;
+
+    -c|--clock)
+        clock
+        ;;
+
+    *)
+        # If no args are used we initiate the bar
+        admiral -c ~/.i3/admiral.toml | workspaces | lemonbar -B $color0 -F $color7 -g x15 -p | sh
+        ;;
+
+esac
