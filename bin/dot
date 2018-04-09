@@ -33,7 +33,7 @@ install_dotfiles(){
 	stow x
 	stow zsh
 	cd
-	
+
 	# Set background image
 	#feh --bg-scale $HOME/wallpapers/Nature.png
 
@@ -55,7 +55,7 @@ update_dotfiles(){
 
 	# Update Pathogen plugins
 	for i in $HOME/.vim/bundle/*; do git -C $i pull; done
-	
+
 }
 
 # Do not run this script as root
@@ -81,7 +81,7 @@ case $1 in
 		update_dotfiles
 		;;
 	*)
-		echo "ERROR: Unknown argument $key."
+		echo "ERROR: Unknown argument $1."
 		exit 1
 		;;
 esac
