@@ -25,9 +25,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo archlinux tmux python)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:$HOME/dotfiles/bin:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:$HOME/dotfiles/bin"
 export MANPATH="/usr/local/man:$MANPATH"
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 source $ZSH/oh-my-zsh.sh
 
