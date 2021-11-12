@@ -1,0 +1,24 @@
+set selection-clipboard clipboard
+
+set recolor true
+
+set default-bg '#252525'
+set default-fg '#d0b693'
+
+set recolor-darkcolor '#d0b693'
+set recolor-lightcolor '#252525'
+
+set font "JetBrains Mono 12"
+
+set inputbar-bg '#252525'
+set inputbar-fg '#d0b693'
+
+set statusbar-bg '#252525'
+set statusbar-fg '#d0b693'
+
+set notification-bg '#252525'
+set notification-fg '#d0b693'
+
+set completion-bg '#252525'
+set completion-fg '#d0b693'
+set completion-highlight-bg '#7F7F7F'

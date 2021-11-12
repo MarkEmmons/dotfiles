@@ -40,6 +40,7 @@ install_dotfiles(){
 	stow tmux
 	stow vim
 	stow x
+	stow zathura
 	stow zsh
 	cd
 
