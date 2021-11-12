@@ -7,51 +7,41 @@ install_dotfiles(){
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	# Vim Plugins
-	PLUGINS=( valloric/YouCompleteMe
-	scrooloose/syntastic
+	PLUGINS=( scrooloose/syntastic
 	scrooloose/nerdtree
 	majutsushi/tagbar
 	airblade/vim-gitgutter
-	vim-airline/vim-airline
-	vim-airline/vim-airline-themes )
+	ntpeters/vim-better-whitespace )
 
 	# Install plugins via parallel trickery
 	cd $HOME/.vim/bundle && \
 	printf "%s\n" "${PLUGINS[@]}" | parallel "git clone https://github.com/{}.git"
+	cd
 
-	# Install YCM
-	cd $HOME/.vim/bundle/YouCompleteMe && \
-	#git submodule update --init --recursive && \
-	#python install.py --clang-completer --system-libclang --tern-completer --racer-completer &
-	#disown
+	# Install ohmyzsh
+	curl -LJO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	if [[ "$(cat install.sh | sha256sum)" = "d5e0d3503e2edeac166113bc3f577512308200e986bc7e727762d98b1aee647c  -" ]]; then
+		sh install.sh
+	fi
+
+	rm -f .zshrc
+	rm -f install.sh
+	rm .zshrc.pre-oh-my-zsh
 
 	# Stow dotfiles
 	cd $HOME/dotfiles/
-	mv chromium/chromium-flags.conf $HOME/.config/chromium
-	stow i3
+	stow .config
+	#stow compton
+	stow tmux
 	stow vim
 	stow x
 	stow zsh
 	cd
 
-	# Set background image
-	#feh --bg-scale $HOME/wallpapers/Nature.png
-
-	# Install ohmyzsh
-	wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-	sed 's|env zsh||' -i install.sh
-	cat install.sh | bash
-	rm -rf .zshrc install.sh
-	mv .zshrc.pre-oh-my-zsh .zshrc
-
 }
 
 # Update Vim plugins
 update_dotfiles(){
-
-	# Update YCM submodules
-	cd $HOME/.vim/bundle/YouCompleteMe/ &&
-		git submodule update --init --recursive
 
 	# Update Pathogen plugins
 	for i in $HOME/.vim/bundle/*; do git -C $i pull; done
