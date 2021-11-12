@@ -48,6 +48,7 @@ install_dotfiles(){
 # Update Vim plugins
 update_dotfiles(){
 
+	# Pull latest dotfiles
 	git -C dotfiles pull
 
 	# Update Pathogen plugins
