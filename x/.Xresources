@@ -10,42 +10,42 @@ XTerm*font: -gohu-gohufont-medium-r-normal--11-80-100-100-c-60-iso10646-1
 XTerm*saveLines: 4096
 XTerm*selectToClipboard: true
 
-!! special
-!*.foreground:   #d0b693
-!*.background:   #252525
-!*.cursorColor:  #d0b693
-!
-!! black
-!*.color0:       #252525
-!*.color8:       #4f4f4f
-!
-!! red
-!*.color1:       #c15c2e
-!*.color9:       #ff5252
-!
-!! green
-!*.color2:       #8b8f78
-!*.color10:      #25322b
-!
-!! yellow
-!*.color3:       #ddbd94
-!*.color11:      #8d6947
-!
-!! blue
-!*.color4:       #5a8c93
-!*.color12:      #204557
-!
-!! magenta
-!*.color5:       #a679cf
-!*.color13:      #9b51e0
-!
-!! cyan
-!*.color6:       #118a71
-!*.color14:      #097f7f
-!
-!! white
-!*.color7:       #f5f5f5
-!*.color15:      #d0b693
+! special
+*.foreground:   #d0b693
+*.background:   #252525
+*.cursorColor:  #d0b693
+
+! black
+*.color0:       #252525
+*.color8:       #4f4f4f
+
+! red
+*.color1:       #c15c2e
+*.color9:       #ff5252
+
+! green
+*.color2:       #8b8f78
+*.color10:      #25322b
+
+! yellow
+*.color3:       #ddbd94
+*.color11:      #8d6947
+
+! blue
+*.color4:       #5a8c93
+*.color12:      #204557
+
+! magenta
+*.color5:       #a679cf
+*.color13:      #9b51e0
+
+! cyan
+*.color6:       #118a71
+*.color14:      #097f7f
+
+! white
+*.color7:       #f5f5f5
+*.color15:      #d0b693
 
 xterm*VT100.Translations: #override \
     Ctrl Shift <Key>V:  insert-selection(CLIPBOARD) \n\
