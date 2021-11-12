@@ -1,4 +1,4 @@
-Xft.dpi: 96
+Xft.dpi: 340
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
@@ -11,41 +11,41 @@ XTerm*saveLines: 4096
 XTerm*selectToClipboard: true
 
 !! special
-!*.foreground:   #ebdbb2
-!*.background:   #282828
-!*.cursorColor:  #ebdbb2
+!*.foreground:   #d0b693
+!*.background:   #252525
+!*.cursorColor:  #d0b693
 !
 !! black
-!*.color0:       #282828
-!*.color8:       #928374
+!*.color0:       #252525
+!*.color8:       #4f4f4f
 !
 !! red
-!*.color1:       #cc241d
-!*.color9:       #fb4934
+!*.color1:       #c15c2e
+!*.color9:       #ff5252
 !
 !! green
-!*.color2:       #98971a
-!*.color10:      #b8bb26
+!*.color2:       #8b8f78
+!*.color10:      #25322b
 !
 !! yellow
-!*.color3:       #d79921
-!*.color11:      #fabd2f
+!*.color3:       #ddbd94
+!*.color11:      #8d6947
 !
 !! blue
-!*.color4:       #458588
-!*.color12:      #83a598
+!*.color4:       #5a8c93
+!*.color12:      #204557
 !
 !! magenta
-!*.color5:       #b16286
-!*.color13:      #d3869b
+!*.color5:       #a679cf
+!*.color13:      #9b51e0
 !
 !! cyan
-!*.color6:       #689d6a
-!*.color14:      #8ec07c
+!*.color6:       #118a71
+!*.color14:      #097f7f
 !
 !! white
-!*.color7:       #a89984
-!*.color15:      #ebdbb2
+!*.color7:       #f5f5f5
+!*.color15:      #d0b693
 
 xterm*VT100.Translations: #override \
     Ctrl Shift <Key>V:  insert-selection(CLIPBOARD) \n\
