@@ -34,7 +34,8 @@ install_dotfiles(){
 
 	# Stow dotfiles
 	cd $HOME/dotfiles/
-	stow .config
+	stow bspwm
+	stow sxhkd
 	#stow compton
 	stow tmux
 	stow vim
