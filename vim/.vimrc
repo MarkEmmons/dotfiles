@@ -32,7 +32,7 @@ map <C-l> <C-w>l
 
 "## Start Pathogen
 execute pathogen#infect()
-syntax on
+syntax enable
 filetype plugin indent on
 
 
@@ -51,10 +51,21 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_compiler = 'gcc'
 
-"# LaTeX
-let g:syntastic_tex_chktex_showmsgs = 1
-
 "# Rust
+
+
+"## LaTeX ##
+"# VimTex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+"# Spellcheck
+setlocal spell
+set spelllang=nl,en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
 "## Tagbar ##

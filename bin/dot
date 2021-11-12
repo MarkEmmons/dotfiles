@@ -7,15 +7,19 @@ install_dotfiles(){
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	# Vim Plugins
-	PLUGINS=( scrooloose/syntastic
-	scrooloose/nerdtree
-	majutsushi/tagbar
-	airblade/vim-gitgutter
-	ntpeters/vim-better-whitespace )
+	PLUGINS=(
+		vim-syntastic/syntastic
+		preservim/nerdtree
+		majutsushi/tagbar
+		airblade/vim-gitgutter
+		ntpeters/vim-better-whitespace
+		rust-lang/rust.vim
+		lervag/vimtex
+	)
 
 	# Install plugins via parallel trickery
 	cd $HOME/.vim/bundle && \
-	printf "%s\n" "${PLUGINS[@]}" | parallel "git clone https://github.com/{}.git"
+	printf "%s\n" "${PLUGINS[@]}" | parallel "git clone --depth=1 https://github.com/{}.git"
 	cd
 
 	# Install ohmyzsh
@@ -24,9 +28,9 @@ install_dotfiles(){
 		sh install.sh
 	fi
 
-	rm -f .zshrc
-	rm -f install.sh
-	rm .zshrc.pre-oh-my-zsh
+	[[ -f .zshrc ]] && rm -f .zshrc
+	[[ -f install.sh ]] && rm -f install.sh
+	[[ -f .zshrc.pre-oh-my-zsh ]] && rm -f .zshrc.pre-oh-my-zsh
 
 	# Stow dotfiles
 	cd $HOME/dotfiles/
