@@ -2,23 +2,23 @@ set selection-clipboard clipboard
 
 set recolor true
 
-set default-bg '#252525'
-set default-fg '#d0b693'
+set default-bg '#0b0f18'
+set default-fg '#e0dcd0'
 
-set recolor-darkcolor '#d0b693'
-set recolor-lightcolor '#252525'
+set recolor-darkcolor '#e0dcd0'
+set recolor-lightcolor '#0b0f18'
 
 set font "JetBrains Mono 12"
 
-set inputbar-bg '#252525'
-set inputbar-fg '#d0b693'
+set inputbar-bg '#0b0f18'
+set inputbar-fg '#e0dcd0'
 
-set statusbar-bg '#252525'
-set statusbar-fg '#d0b693'
+set statusbar-bg '#0b0f18'
+set statusbar-fg '#e0dcd0'
 
-set notification-bg '#252525'
-set notification-fg '#d0b693'
+set notification-bg '#0b0f18'
+set notification-fg '#e0dcd0'
 
-set completion-bg '#252525'
-set completion-fg '#d0b693'
-set completion-highlight-bg '#7F7F7F'
+set completion-bg '#0b0f18'
+set completion-fg '#e0dcd0'
+set completion-highlight-bg '#a94f34'
