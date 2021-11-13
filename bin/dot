@@ -51,7 +51,7 @@ install_dotfiles(){
 update_dotfiles(){
 
 	# Pull latest dotfiles
-	git -C dotfiles pull
+	git -C $HOME/dotfiles pull
 
 	# Update Pathogen plugins
 	for i in $HOME/.vim/bundle/*; do git -C $i pull; done
