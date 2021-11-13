@@ -1,6 +1,6 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-feh --bg-scale dotfiles/feh/FoxWallpaper.jpg
+feh --bg-scale dotfiles/feh/forest_fox.jpg
 
 sxhkd &
 exec bspwm
