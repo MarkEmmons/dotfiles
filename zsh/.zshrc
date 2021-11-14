@@ -76,7 +76,7 @@ zle -N prepend-sudo
   bindkey "$keyinfo[Control]s" prepend-sudo
 
 ## Start tmux in xterm
-[[ "$TERM" = "xterm" ]] && exec tmux
+[[ "$TERM" = "screen-256color" ]] && exec tmux
 #[[ "$TERM" = "linux" ]] && alien_theme
 
 ## copy with a progress bar.
@@ -276,3 +276,4 @@ getanchors () { perl -ne 'while ( m/«([^«»\n]+)»/gc ) { print $1, "\n"; }' $
 showINC ()    { perl -e 'for (@INC) { printf "%d %s\n", $i++, $_ }' }
 vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
+
