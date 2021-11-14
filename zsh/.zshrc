@@ -76,7 +76,7 @@ zle -N prepend-sudo
   bindkey "$keyinfo[Control]s" prepend-sudo
 
 ## Start tmux in xterm
-[[ "$TERM" = "screen-256color" ]] && exec tmux
+[[ "$TERM" = "alacritty" ]] && exec tmux
 #[[ "$TERM" = "linux" ]] && alien_theme
 
 ## copy with a progress bar.
