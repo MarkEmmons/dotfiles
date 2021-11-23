@@ -1,5 +1,6 @@
 body {
-	background-image: url('');
+	background-image: url("./FishingCats.jpg");
+    background-repeat: no-repeat;
 	background-size: cover;
 }
 
