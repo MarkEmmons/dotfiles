@@ -36,6 +36,7 @@ install_dotfiles(){
 	cd $HOME/workspace/dotfiles/
 	stow alacritty --target=$HOME
 	stow bspwm --target=$HOME
+	stow feh --target=$HOME
 	stow luakit --target=$HOME
 	stow picom --target=$HOME
 	stow sxhkd --target=$HOME

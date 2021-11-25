@@ -1,6 +1,8 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-feh --bg-scale dotfiles/feh/Bulls.jpg
+picom &
+
+feh --bg-scale $HOME/.config/feh/Bulls.jpg
 xsetroot -cursor_name left_ptr
 
 sxhkd &
