@@ -1,0 +1,4 @@
+configuration {
+	theme: "paper-float";
+	font: "hack 32";
+}

@@ -39,6 +39,7 @@ install_dotfiles(){
 	stow feh --target=$HOME
 	stow luakit --target=$HOME
 	stow picom --target=$HOME
+	stow rofi --target=$HOME
 	stow sxhkd --target=$HOME
 	stow tmux --target=$HOME
 	stow vim --target=$HOME
