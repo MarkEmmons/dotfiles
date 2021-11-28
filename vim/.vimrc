@@ -2,7 +2,7 @@
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+set noexpandtab
 
 "# 100 char columns
 set colorcolumn=81
@@ -35,6 +35,7 @@ execute pathogen#infect()
 syntax enable
 filetype plugin indent on
 
+colorscheme noctu
 
 "## Syntastic ##
 
