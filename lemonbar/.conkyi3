@@ -1,0 +1,39 @@
+out_to_x no
+out_to_console yes
+short_units yes
+update_interval 1
+
+TEXT
+
+[\
+# Spotify now-playing
+{"full_text":"${execp ~/dotfiles/bin/spotify-nowplaying.sh}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+
+# iface ip address
+{"full_text":"${if_existing /sys/class/net/enp4s0/operstate up}${addr enp4s0}${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+{"full_text":"${if_existing /sys/class/net/wlp3s0b1/operstate up}${addr wlp3s0b1}${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+
+# Check updates
+{"full_text":"","color":"\#ff1616","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${execpi 30 checkupdates | wc -l}>1}${execpi 300 checkupdates | wc -l} new packages${endif}","color":"\#ff1616","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${execpi 30 checkupdates | wc -l}==1}1 new package${endif}","color":"\#ff1616","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${execpi 30 checkupdates | wc -l}==0}Nothing to update${endif}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+
+# Memory:
+{"full_text":"","color":"\#DEDEDE","separator":true,"separator_block_width":35},\
+{"full_text":"${mem}/${memmax}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+
+# Battery:
+{"full_text":"","color":"\#DEDEDE","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${battery_percent BAT0}>=50}${battery_bar}${endif}","color":"\#298A08","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${battery_percent BAT0}>=10}${if_match ${battery_percent BAT0}<50}${battery_bar}${endif}${endif}","color":"\#DBA901","separator":true,"separator_block_width":35},\
+{"full_text":"${if_match ${battery_percent BAT0}<10}${battery_bar}${endif}","color":"\#DF0101","separator":true,"separator_block_width":35},\
+
+# Volume:
+{"full_text":"${if_match ${execi 1 amixer sget Master,0 | egrep -o '([0-9]+%)' | sed -e s/\%//}>65}${else}${if_match ${execi 1 amixer sget Master,0 | egrep -o '([0-9]+%)' | sed -e s/\%//}>20}${else}${if_match ${execi 1 amixer sget Master,0 | egrep -o '([0-9]+%)' | sed -e s/\%//}>0}${else}${endif}${endif}${endif}","color":"\#DEDEDE","separator":true,"separator_block_width":35},\
+{"full_text":"${execi 1 amixer sget Master,0 | egrep -o '([0-9]+%|\[(on|off)\])' | sed ':a;N;$!ba;s/\n/ /g'}","color":"\#EBE8E0","separator":true,"separator_block_width":35},\
+
+# Date and Time:
+{"full_text":"","color":"\#ff1616","separator":false,"separator_block_width":35},\
+{"full_text":"${time %m:%d:%y:%H:%M:%S}","color":"\#ff1616","separator":false}\
+],
