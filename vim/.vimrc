@@ -6,8 +6,8 @@ set shiftwidth=4
 set softtabstop=0
 
 "# 100 char columns
-set colorcolumn=81
-set textwidth=80
+set colorcolumn=100
+"set textwidth=100
 
 "# Enable mouse
 set mouse=a
