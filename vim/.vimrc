@@ -9,6 +9,10 @@ set softtabstop=0
 set colorcolumn=100
 "set textwidth=100
 
+"# Change cursor in insert mode
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
 "# Enable mouse
 set mouse=a
 
@@ -53,10 +57,12 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_compiler = 'gcc'
 
-"# Rust
-
+let g:syntastic_c_compiler = 'gcc'
 
 "## LaTeX ##
+call neomake#configure#automake('w')
+let g:syntastic_tex_checkers = ['']
+
 "# VimTex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -76,3 +82,4 @@ let g:tagbar_ctags_bin = "/usr/bin/ctags"
 "# Keybindings
 :nmap \e :NERDTreeToggle<Cr>
 :nmap \t :TagbarToggle<Cr>
+:nmap q :lclose<Cr>
