@@ -2,6 +2,15 @@
 # wm independent hotkeys
 #
 
+XF86AudioRaiseVolume
+	amixer sset Master 1+
+
+XF86AudioLowerVolume
+	amixer sset Master 1-
+
+XF86AudioMute
+	amixer sset Master toggle && amixer sset Speaker toggle && amixer sset Headphone toggle
+
 # terminal emulator
 super + Return
 	alacritty
