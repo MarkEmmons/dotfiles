@@ -1,0 +1,5 @@
+require "mark.options"
+require "mark.keymaps"
+require "mark.plugins"
+require "mark.colorscheme"
+require "mark.cmp"
