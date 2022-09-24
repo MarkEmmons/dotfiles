@@ -1,0 +1,26 @@
+[admiral]
+items = ["ip_address", "updates", "memory", "battery", "volume", "clock"]
+
+[ip_address]
+path = "./lemonbar.sh -i"
+reload = 1
+
+[updates]
+path = "./lemonbar.sh -u"
+reload = 10
+
+[memory]
+path = "./lemonbar.sh -m"
+reload = 1
+
+[battery]
+path = "./lemonbar.sh -b"
+reload = 0.5
+
+[volume]
+path = "./lemonbar.sh -v"
+reload = 0.1
+
+[clock]
+path = "./lemonbar.sh -c"
+reload = 0.1
