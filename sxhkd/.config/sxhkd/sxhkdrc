@@ -9,7 +9,13 @@ XF86AudioLowerVolume
 	amixer sset Master 1-
 
 XF86AudioMute
-	amixer sset Master toggle && amixer sset Speaker toggle && amixer sset Headphone toggle
+	amixer -D pulse set Master toggle && amixer sset Headphone toggle
+
+XF86MonBrightnessUp
+	echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 20)) >> /sys/class/backlight/intel_backlight/brightness
+
+XF86MonBrightnessDown
+	echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 20)) >> /sys/class/backlight/intel_backlight/brightness
 
 # terminal emulator
 super + Return
