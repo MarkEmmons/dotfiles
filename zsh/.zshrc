@@ -28,6 +28,8 @@ plugins=(git sudo archlinux tmux python)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:$HOME/dotfiles/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
+PATH=$PATH:$HOME/.cargo/bin:$HOME/workspace/dotfiles/bin
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -62,6 +64,7 @@ export RHISK_COMM="zenbu"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias clip="xclip -selection clipboard"
+alias v="nvim"
 
 if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
     source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
