@@ -49,6 +49,11 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-buffer"
 	use "hrsh7th/cmp-path"
 	use "hrsh7th/cmp-cmdline"
+	use "hrsh7th/cmp-nvim-lsp"
+
+	-- LSP
+	use "neovim/nvim-lspconfig"
+	use "williamboman/nvim-lsp-installer"
 
 	-- Colorscheme
 	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
