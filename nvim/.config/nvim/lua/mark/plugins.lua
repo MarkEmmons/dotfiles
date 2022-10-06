@@ -43,6 +43,8 @@ return packer.startup(function(use)
 
 	-- Packer
 	use "wbthomason/packer.nvim" -- Have packer manage itself
+	use "nvim-lua/popup.nvim"    -- Popup API for Neovim
+	use "nvim-lua/plenary.nvim"  -- Lua functions used by many plugins
 
 	-- cmp
 	use "hrsh7th/nvim-cmp"
@@ -50,6 +52,7 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-path"
 	use "hrsh7th/cmp-cmdline"
 	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-nvim-lua"
 
 	-- LSP
 	use "neovim/nvim-lspconfig"
@@ -57,6 +60,9 @@ return packer.startup(function(use)
 
 	-- Colorscheme
 	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
+
+	-- Autopairs
+	use "windwp/nvim-autopairs"
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

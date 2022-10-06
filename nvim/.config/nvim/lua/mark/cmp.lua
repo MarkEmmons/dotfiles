@@ -3,11 +3,6 @@ if not cmp_status_ok then
 	return
 end
 
-local check_backspace = function()
-	local col = vim.fn.col "." - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
 -- Add some kind_icons
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -44,8 +39,8 @@ local kind_icons = {
 -- Let go to select
 cmp.setup {
 	mapping = {
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+		["<A-k>"] = cmp.mapping.select_prev_item(),
+		["<A-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -56,12 +51,10 @@ cmp.setup {
 		},
 		-- Accept currently selected item. If none selected, 'select' first item.
 		-- Set 'select' to 'false' to only confirm explicitly selected items.
-		["<CR>"] = cmp.mapping.confirm { select = true },
+		["<CR>"] = cmp.mapping.confirm { select = false },
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif check_backspace() then
-				fallback()
 			else
 				fallback()
 			end
@@ -72,8 +65,6 @@ cmp.setup {
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -87,6 +78,8 @@ cmp.setup {
 		format = function(entry, vim_item)
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = ({
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[LUA]",
 				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
@@ -94,6 +87,8 @@ cmp.setup {
 		end,
 	},
 	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "buffer" },
 		{ name = "path" },
 	},
