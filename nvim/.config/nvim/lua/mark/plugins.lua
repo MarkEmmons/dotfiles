@@ -46,6 +46,14 @@ return packer.startup(function(use)
 	use "nvim-lua/popup.nvim"    -- Popup API for Neovim
 	use "nvim-lua/plenary.nvim"  -- Lua functions used by many plugins
 
+	-- Nvim-Tree
+	use {
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+	}
+
 	-- cmp
 	use "hrsh7th/nvim-cmp"
 	use "hrsh7th/cmp-buffer"
@@ -63,6 +71,7 @@ return packer.startup(function(use)
 
 	-- Colorscheme
 	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
+	use "~/workspace/lua/noc2.nvim" -- Inherit color scheme from the terminal
 
 	-- Autopairs
 	use "windwp/nvim-autopairs"
