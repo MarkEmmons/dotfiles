@@ -19,14 +19,22 @@ vim.g.maplocalleader = " "
 --	command_mode = "c",
 
 --- Normal ---
+-- Remap recording to <leader>q
+keymap("n", "<leader>q", "q", opts)
+
+-- Use q and Q for closing quickfix and location lists
+keymap("n", "q", ":lclose<CR>", opts)
+keymap("n", "Q", ":cclose<CR>", opts)
+
+
 -- Better Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Open file explorer with width of 20
-keymap("n", "<leader>e", ":Lex 20<cr>", opts)
+-- Nvimtree
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Turn off highlighting from last search command
 keymap("n", "<leader>h", ":noh<cr>", opts)
