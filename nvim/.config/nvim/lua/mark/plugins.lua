@@ -76,6 +76,9 @@ return packer.startup(function(use)
 	-- Autopairs
 	use "windwp/nvim-autopairs"
 
+	-- Toggleterm
+	use "akinsho/toggleterm.nvim"
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
