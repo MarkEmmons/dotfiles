@@ -1,0 +1,8 @@
+$aux_dir = 'aux';
+$out_dir = 'out';
+
+$emulate_aux = 1;
+
+$pdf_mode = 1;
+$pdf_previewer = 'start zathura';
+$pdf_update_method = 2;
