@@ -54,6 +54,15 @@ return packer.startup(function(use)
 		},
 	}
 
+	-- Bufferline
+	use {
+		"akinsho/bufferline.nvim",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+			"moll/vim-bbye",
+		},
+	}
+
 	-- cmp
 	use "hrsh7th/nvim-cmp"
 	use "hrsh7th/cmp-buffer"
@@ -79,15 +88,15 @@ return packer.startup(function(use)
 	-- Toggleterm
 	use "akinsho/toggleterm.nvim"
 
+	-- Treesitter
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	}
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
-
-	-- Treesitter
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	}
 end)
