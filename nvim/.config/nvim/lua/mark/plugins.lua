@@ -46,6 +46,9 @@ return packer.startup(function(use)
 	use "nvim-lua/popup.nvim"    -- Popup API for Neovim
 	use "nvim-lua/plenary.nvim"  -- Lua functions used by many plugins
 
+	-- Nvim-Dap
+	use "mfussenegger/nvim-dap"
+
 	-- Nvim-Tree
 	use {
 		"kyazdani42/nvim-tree.lua",
