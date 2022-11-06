@@ -55,7 +55,11 @@ local function lsp_highlight_document(client)
 			]],
 			false
 		)
-	end 
+	end
+end
+
+M.LspHighlightDocument = function (client)
+	lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
@@ -78,6 +82,11 @@ local function lsp_keymaps(bufnr)
 	--vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.show({ border = "rounded" })<CR>', opts)
 
 	vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+end
+
+
+M.LspKeymaps = function (bufnr)
+	lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)

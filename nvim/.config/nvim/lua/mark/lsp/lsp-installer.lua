@@ -14,24 +14,20 @@ lsp_installer.on_server_ready(function(server)
 	if server.name == "sumneko_lua" then
 		local sumneko_opts = require("mark.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	end
 
-	if server.name == "rust_analyzer" then
-		local rust_opts = require("mark.lsp.settings.rust_analyzer")
-		opts = vim.tbl_deep_extend("force", rust_opts, opts)
-	end
-
-	if server.name == "denols" then
+	elseif server.name == "denols" then
 		-- Augment vim.g.markdown_fenced_languages to appropriately highlight codefences returned from denols 
 		vim.g.markdown_fenced_languages = { "ts=typescript" }
 
 		local deno_opts = require("mark.lsp.settings.denols")
 		opts = vim.tbl_deep_extend("force", deno_opts, opts)
-	end
 
-	if server.name == "texlab" then
+	elseif server.name == "texlab" then
 		local texlab_opts = require("mark.lsp.settings.texlab")
 		opts = vim.tbl_deep_extend("force", texlab_opts, opts)
+
+	else
+		return
 	end
 
 	-- This setup() function is exactly the same as lspconfig's setup

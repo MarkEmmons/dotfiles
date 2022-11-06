@@ -78,8 +78,18 @@ return packer.startup(function(use)
 	use "L3MON4D3/LuaSnip" --snippet engine
 
 	-- LSP
-	use "neovim/nvim-lspconfig"
-	use "williamboman/nvim-lsp-installer"
+	use {
+		"neovim/nvim-lspconfig",
+		requires = {
+			"williamboman/nvim-lsp-installer",
+		}
+	}
+
+	-- rust-tools
+	use {
+		"simrat39/rust-tools.nvim",
+		ft = { 'rust' },
+	}
 
 	-- Colorscheme
 	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
