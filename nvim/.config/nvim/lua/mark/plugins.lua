@@ -88,7 +88,6 @@ return packer.startup(function(use)
 	-- rust-tools
 	use {
 		"simrat39/rust-tools.nvim",
-		ft = { 'rust' },
 	}
 
 	-- Colorscheme
