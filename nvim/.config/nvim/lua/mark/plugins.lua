@@ -47,7 +47,12 @@ return packer.startup(function(use)
 	use "nvim-lua/plenary.nvim"  -- Lua functions used by many plugins
 
 	-- Nvim-Dap
-	use "mfussenegger/nvim-dap"
+	use {
+		"mfussenegger/nvim-dap",
+		requires = {
+			"rcarriga/nvim-dap-ui",
+		},
+	}
 
 	-- Nvim-Tree
 	use {
