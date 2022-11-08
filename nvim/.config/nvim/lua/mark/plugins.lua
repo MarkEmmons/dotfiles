@@ -95,6 +95,20 @@ return packer.startup(function(use)
 		"simrat39/rust-tools.nvim",
 	}
 
+	-- Neotest
+	use {
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+
+			-- Adapters
+			--"rouge8/neotest-rust",
+			"~/workspace/lua/neotest-rust",
+		},
+	}
+
 	-- Colorscheme
 	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
 	use "~/workspace/lua/noc2.nvim" -- Inherit color scheme from the terminal
