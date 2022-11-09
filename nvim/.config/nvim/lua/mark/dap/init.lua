@@ -3,6 +3,9 @@ if not dap_ok then
 	return
 end
 
+-- Commands
+local dap_cmds = require("mark.dap.commands")
+
 dap.adapters.lldb = {
 	type = 'executable',
 	command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
@@ -14,11 +17,13 @@ local configurations = {
 	type = 'lldb',
 	request = 'launch',
 	program = function()
-	return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+		return dap_cmds.get_test_binary()
 	end,
 	cwd = '${workspaceFolder}',
 	stopOnEntry = false,
-	args = {},
+	args = function()
+		return dap_cmds.get_nearest_test()
+	end,
 }
 
 dap.configurations.rust = { configurations }
