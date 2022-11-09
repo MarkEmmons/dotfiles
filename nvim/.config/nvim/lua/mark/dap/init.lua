@@ -23,6 +23,10 @@ local configurations = {
 
 dap.configurations.rust = { configurations }
 
+-- Signs
+require("mark.dap.signs")
+
+-- UI
 local dapui = require("mark.dap.nvim-dap-ui")
 
 if dapui then
