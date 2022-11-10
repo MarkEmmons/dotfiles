@@ -37,6 +37,7 @@ local dapui = require("mark.dap.nvim-dap-ui")
 if dapui then
 	dap.listeners.after.event_initialized["dapui_config"] = function()
 		dapui.open()
+		require('neotest').summary.close()
 	end
 	dap.listeners.before.event_terminated["dapui_config"] = function()
 		dapui.close()
