@@ -17,7 +17,7 @@ vim.opt.ignorecase = true                       -- ignore case in search pattern
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 1                         -- always show tabs
---vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 
 vim.opt.smartindent = true                      -- make indenting smarter again
 vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
