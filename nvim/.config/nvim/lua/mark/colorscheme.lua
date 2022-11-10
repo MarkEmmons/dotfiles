@@ -1,6 +1,4 @@
-vim.cmd "colorscheme noctu"
-
-local colorscheme = "noctu"
+local colorscheme = "noc2"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
