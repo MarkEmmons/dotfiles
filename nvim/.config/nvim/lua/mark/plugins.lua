@@ -97,7 +97,8 @@ return packer.startup(function(use)
 
 	-- Neotest
 	use {
-		"nvim-neotest/neotest",
+		--"nvim-neotest/neotest",
+		"~/workspace/lua/neotest",
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
