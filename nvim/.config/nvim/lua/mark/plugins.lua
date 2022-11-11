@@ -107,6 +107,8 @@ return packer.startup(function(use)
 			-- Adapters
 			--"rouge8/neotest-rust",
 			"~/workspace/lua/neotest-rust",
+			"~/workspace/lua/neotest-deno",
+			"nvim-neotest/neotest-plenary",
 		},
 	}
 
