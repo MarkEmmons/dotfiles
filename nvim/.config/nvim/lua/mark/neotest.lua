@@ -8,6 +8,7 @@ neotest.setup {
 		require("neotest-rust") {
 			args = { "--no-capture" },
 		},
+		require("neotest-plenary"),
 	},
 	icons = {
 		child_indent = "│",
