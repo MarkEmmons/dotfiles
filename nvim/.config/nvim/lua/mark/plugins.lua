@@ -97,24 +97,25 @@ return packer.startup(function(use)
 
 	-- Neotest
 	use {
-		--"nvim-neotest/neotest",
-		"~/workspace/lua/neotest",
+		"nvim-neotest/neotest",
 		requires = {
+
+			-- Requirements
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
 
 			-- Adapters
 			--"rouge8/neotest-rust",
-			"~/workspace/lua/neotest-rust",
-			"~/workspace/lua/neotest-deno",
+			"~/workspace/Lua/neotest-rust",
+			"~/workspace/Lua/neotest-deno",
 			"nvim-neotest/neotest-plenary",
 		},
 	}
 
 	-- Colorscheme
 	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
-	use "~/workspace/lua/noc2.nvim" -- Inherit color scheme from the terminal
+	use "~/workspace/Lua/noc2.nvim" -- Inherit color scheme from the terminal
 
 	-- Autopairs
 	use "windwp/nvim-autopairs"
@@ -126,6 +127,9 @@ return packer.startup(function(use)
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+		requires = {
+			"nvim-treesitter/playground",
+		},
 	}
 
 	-- Automatically set up your configuration after cloning packer.nvim
