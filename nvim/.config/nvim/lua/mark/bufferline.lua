@@ -25,16 +25,6 @@ bufferline.setup {
 		-- close_icon = '',
 		left_trunc_marker = "",
 		right_trunc_marker = "",
-		--- name_formatter can be used to change the buffer's label in the bufferline.
-		--- Please note some names can/will break the
-		--- bufferline so use this at your discretion knowing that it has
-		--- some limitations that will *NOT* be fixed.
-		-- name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
-		--   -- remove extension from markdown files for example
-		--   if buf.name:match('%.md') then
-		--     return vim.fn.fnamemodify(buf.name, ':t:r')
-		--   end
-		-- end,
 		max_name_length = 30,
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,
@@ -42,7 +32,9 @@ bufferline.setup {
 		diagnostics_update_in_insert = false,
 		custom_filter = function(buf_number, buf_numbers)
 			-- filter out by buffer name
-			if vim.fn.bufname(buf_number) ~= "[dap-repl]" then
+			if vim.fn.bufname(buf_number) ~= "[dap-repl]" and
+				vim.fn.bufname(buf_number) ~= "[No Name]" then
+
 				return true
 			end
 		end,
