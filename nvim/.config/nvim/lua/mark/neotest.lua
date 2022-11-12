@@ -5,10 +5,11 @@ end
 
 neotest.setup {
 	adapters = {
+		require("neotest-deno"),
+		require("neotest-plenary"),
 		require("neotest-rust") {
 			args = { "--no-capture" },
 		},
-		require("neotest-plenary"),
 	},
 	icons = {
 		child_indent = "│",
