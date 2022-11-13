@@ -32,6 +32,9 @@ vim.opt.signcolumn = "yes"                      -- always show the sign column (
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 
+vim.opt.laststatus = 3
+--vim.opt.winbar = "ASDF"
+
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set iskeyword+=_"
 vim.cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
