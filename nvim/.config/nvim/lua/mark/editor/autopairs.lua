@@ -29,10 +29,10 @@ npairs.setup {
 	},
 }
 
-npairs.remove_rule("'")
-npairs.add_rules {
-	(Rule("'", "'", "-rust"))
-}
+--npairs.remove_rule("'")
+--npairs.add_rules {
+--	(Rule("'", "'", "-rust"))
+--}
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local cmp_status_ok, cmp = pcall(require, "cmp")

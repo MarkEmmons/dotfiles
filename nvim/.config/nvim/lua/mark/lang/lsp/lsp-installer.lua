@@ -7,23 +7,23 @@ end
 lsp_installer.on_server_ready(function(server)
 
 	local opts = {
-		on_attach = require("mark.lsp.handlers").on_attach,
-		capabilities = require("mark.lsp.handlers").capabilities,
+		on_attach = require("mark.lang.lsp.handlers").on_attach,
+		capabilities = require("mark.lang.lsp.handlers").capabilities,
 	}
 
 	if server.name == "sumneko_lua" then
-		local sumneko_opts = require("mark.lsp.settings.sumneko_lua")
+		local sumneko_opts = require("mark.lang.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 
 	elseif server.name == "denols" then
 		-- Augment vim.g.markdown_fenced_languages to appropriately highlight codefences returned from denols 
 		vim.g.markdown_fenced_languages = { "ts=typescript" }
 
-		local deno_opts = require("mark.lsp.settings.denols")
+		local deno_opts = require("mark.lang.lsp.settings.denols")
 		opts = vim.tbl_deep_extend("force", deno_opts, opts)
 
 	elseif server.name == "texlab" then
-		local texlab_opts = require("mark.lsp.settings.texlab")
+		local texlab_opts = require("mark.lang.lsp.settings.texlab")
 		opts = vim.tbl_deep_extend("force", texlab_opts, opts)
 
 	else

@@ -24,10 +24,10 @@ local configurations = {
 dap.configurations.rust = { configurations }
 
 -- Signs
-require("mark.dap.signs")
+require("mark.lang.dap.signs")
 
 -- UI
-local dapui = require("mark.dap.nvim-dap-ui")
+local dapui = require("mark.lang.dap.nvim-dap-ui")
 
 if dapui then
 	dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -42,4 +42,4 @@ if dapui then
 	end
 end
 
-require("mark.dap.keymaps")
+require("mark.lang.dap.keymaps")

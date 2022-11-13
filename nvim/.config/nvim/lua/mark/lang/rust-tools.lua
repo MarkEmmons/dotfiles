@@ -16,8 +16,8 @@ rt.setup({
 			local keymap = vim.api.nvim_buf_set_keymap
 			local opts = { noremap = true, silent = true }
 
-			require("mark.lsp.handlers").LspKeymaps(bufnr)
-			require("mark.lsp.handlers").LspHighlightDocument(client)
+			require("mark.lang.lsp.handlers").LspKeymaps(bufnr)
+			require("mark.lang.lsp.handlers").LspHighlightDocument(client)
 
 			keymap(bufnr, "n", "<Leader>1", "<cmd>RustEnableInlayHints<CR>", opts)
 			keymap(bufnr, "n", "<Leader>2", "<cmd>RustDisableInlayHints<CR>", opts)

@@ -3,5 +3,5 @@ if not status_ok then
 	return
 end
 
-require("mark.lsp.lsp-installer")
-require("mark.lsp.handlers").setup()
+require("mark.lang.lsp.lsp-installer")
+require("mark.lang.lsp.handlers").setup()
