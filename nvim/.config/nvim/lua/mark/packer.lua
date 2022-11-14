@@ -122,10 +122,6 @@ return packer.startup(function(use)
 		},
 	}
 
-	-- Colorscheme
-	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
-	use "~/workspace/Lua/noc2.nvim" -- Inherit color scheme from the terminal
-
 	-- Autopairs
 	use "windwp/nvim-autopairs"
 
@@ -154,6 +150,17 @@ return packer.startup(function(use)
 	}
 	use 'lewis6991/gitsigns.nvim'
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+	-- THEMES
+	use "rktjmp/lush.nvim"
+	use "noahfrederick/vim-noctu" -- Inherit color scheme from the terminal
+	use "~/workspace/Lua/noc2.nvim" -- Inherit color scheme from the terminal
+	use "sainnhe/gruvbox-material"
+	use "rebelot/kanagawa.nvim"
+	use "sindrets/oxocarbon-lua.nvim"
+	use { "catppuccin/nvim", as = "catppuccin" }
+	use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
