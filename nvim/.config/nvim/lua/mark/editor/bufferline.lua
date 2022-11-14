@@ -13,11 +13,8 @@ local function run_custom_filter(buf_number, _)
 	end
 end
 
---local function run_name_formatter(path)
---
---	print(path)
---	return path
---end
+-- TODO: Map <dir>/init.lua to <dir>
+--local function run_name_formatter(path) end
 
 local opts = {
 
@@ -53,6 +50,13 @@ local opts = {
 		{ filetype = "NvimTree", text = "", padding = 1 },
 		{ filetype = "dapui_breakpoints", text = "", padding = 1 },
 	},
+
+	-- TODO: This doesn't work, see :help bufferline-hover-events
+	--hover = {
+	--	enabled = true,
+	--	delay = 200,
+	--	reveal = {'close'}
+	--},
 }
 
 local function bl_expand_highlight(highlight)
@@ -63,16 +67,19 @@ local function bl_expand_highlight(highlight)
 	}
 end
 
+-- Highlight keys
+-- - Selected - Applies to buffer in active window
+-- - Visible - Applies to buffers visible in inactive windows
 local hl = {
 
-	background        = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}),
+	background        = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}), -- ?
 
-	--buffer_selected = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}),
-	buffer_visible    = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}),
+	buffer_selected = bl_expand_highlight({ fg = "TabLine", bg = "Normal"}),
+	buffer_visible  = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}),
 
-	close_button            = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
-	--close_button_selected = bl_expand_highlight({ fg = 'TabLineSel', bg = 'TabLineSel' }),
-	close_button_visible    = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	close_button          = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	close_button_selected = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
+	close_button_visible  = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
 
 	duplicate          = bl_expand_highlight({ fg = "TabLine", bg = "TabLine", italic = true }),
 	duplicate_selected = bl_expand_highlight({ fg = "TabLine", bg = "TabLine", italic = true }),
