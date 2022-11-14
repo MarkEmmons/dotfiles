@@ -16,6 +16,7 @@ rt.setup({
 			local keymap = vim.api.nvim_buf_set_keymap
 			local opts = { noremap = true, silent = true }
 
+			require("nvim-navic").attach(client, bufnr)
 			require("mark.lang.lsp.handlers").LspKeymaps(bufnr)
 			require("mark.lang.lsp.handlers").LspHighlightDocument(client)
 
