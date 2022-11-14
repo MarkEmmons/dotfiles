@@ -19,7 +19,7 @@ end
 vim.cmd [[
 	augroup packer_user_config
 		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PackerSync
+		autocmd BufWritePost packer.lua source <afile> | PackerSync
 	augroup end
 ]]
 
@@ -122,6 +122,12 @@ return packer.startup(function(use)
 
 	-- Toggleterm
 	use "akinsho/toggleterm.nvim"
+
+	-- Winbar and Statusline
+	use {
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig"
+	}
 
 	-- Treesitter
 	use {

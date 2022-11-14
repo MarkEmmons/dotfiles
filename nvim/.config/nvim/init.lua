@@ -1,5 +1,5 @@
 require "mark.opts"
 require "mark.packer"
-require "mark.editor"
 require "mark.lang"
+require "mark.editor"
 require "mark.git"
