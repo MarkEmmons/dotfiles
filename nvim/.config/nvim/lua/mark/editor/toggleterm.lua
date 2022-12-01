@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 20,
+	size = 10,
 	open_mapping = [[<C-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -39,6 +39,9 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- Open a horizontal terminal with Ctrl-Space
+vim.api.nvim_buf_set_keymap(0, 'n', '<C-Space>', "<Cmd>2ToggleTerm direction=horizontal<CR>", { noremap = true, silent = true })
 
 -- Create special screens
 local Terminal = require("toggleterm.terminal").Terminal

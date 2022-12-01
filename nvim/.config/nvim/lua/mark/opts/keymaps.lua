@@ -26,15 +26,18 @@ keymap("n", "<leader>q", "q", opts)
 keymap("n", "q", ":lclose<CR>", opts)
 keymap("n", "Q", ":cclose<CR>", opts)
 
-
 -- Better Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", "<A-j>", "gj", opts)
+keymap("n", "<A-k>", "gk", opts)
+
 -- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<Leader>o", ":SymbolsOutline<cr>", opts)
 
 -- Turn off highlighting from last search command
 keymap("n", "<leader>h", ":noh<cr>", opts)
@@ -51,6 +54,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Close buffers
 keymap("n", "<A-w>", ":Bdelete<CR>", opts)
+keymap("n", "<A-W>", ":Bdelete!<CR>", opts)
+keymap("n", "<Leader>w", ":bufdo :Bdelete<CR>", opts)
 
 --- Visual ---
 -- Stay in indent mode

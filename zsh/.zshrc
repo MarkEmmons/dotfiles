@@ -70,6 +70,11 @@ if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]
     source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
+## Quickly navigate to my neovim config
+alias cdv="cd $HOME/workspace/dotfiles/nvim/.config/nvim/"
+alias cdp="cd $HOME/.local/share/nvim/site/pack/packer/start/"
+
+
 ## alt-S inserts sudo
 function prepend-sudo {
   if [[ $BUFFER != "sudo "* ]]; then

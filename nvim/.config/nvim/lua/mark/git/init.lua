@@ -11,3 +11,6 @@ require('git-conflict').setup({
 require('gitsigns').setup()
 
 require('diffview').setup()
+
+-- Keymaps
+--vim.api.nvim_buf_set_keymap(0, 'n', '<C-Space>', "<Cmd>ToggleTerm direction=horizontal<CR>", { noremap = true, silent = true })

@@ -51,6 +51,7 @@ return packer.startup(function(use)
 		"mfussenegger/nvim-dap",
 		requires = {
 			"rcarriga/nvim-dap-ui",
+			"jbyuki/one-small-step-for-vimkind",
 		},
 	}
 
@@ -103,6 +104,7 @@ return packer.startup(function(use)
 	use {
 		"simrat39/rust-tools.nvim",
 	}
+	use 'simrat39/symbols-outline.nvim'
 
 	-- Neotest
 	use {
@@ -124,6 +126,7 @@ return packer.startup(function(use)
 
 	-- Autopairs
 	use "windwp/nvim-autopairs"
+	use "yamatsum/nvim-cursorline"
 
 	-- Toggleterm
 	use "akinsho/toggleterm.nvim"
@@ -150,6 +153,24 @@ return packer.startup(function(use)
 	}
 	use 'lewis6991/gitsigns.nvim'
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+	-- Diagnostics
+	-- Lua
+	use {
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup {}
+
+			vim.keymap.set("n", "]t", function()
+				require("todo-comments").jump_next()
+			end, { desc = "Next todo comment" })
+
+			vim.keymap.set("n", "[t", function()
+				require("todo-comments").jump_prev()
+			end, { desc = "Previous todo comment" })
+		end,
+	}
 
 	-- THEMES
 	use "rktjmp/lush.nvim"

@@ -3,6 +3,33 @@ if not status_ok then
 	return
 end
 
+--[[
+ 	0	1	2	3	4	5	6	7	8	9	A	B	C	D	E	F
+U+250x	─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏
+U+251x	┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟
+U+252x	┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯
+U+253x	┰	┱	┲	┳	┴	┵	┶	┷	┸	┹	┺	┻	┼	┽	┾	┿
+U+254x	╀	╁	╂	╃	╄	╅	╆	╇	╈	╉	╊	╋	╌	╍	╎	╏
+U+255x	═	║	╒	╓	╔	╕	╖	╗	╘	╙	╚	╛	╜	╝	╞	╟
+U+256x	╠	╡	╢	╣	╤	╥	╦	╧	╨	╩	╪	╫	╬	╭	╮	╯
+U+257x	╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿
+]]--
+local double_icons     = { indent = "║", prefix = "╠", collapsed = "═", expanded = "╗", final_indent = " ", final_prefix = "╚", non_collapsible = "─" }
+--local curved_icons   = { indent = "│", prefix = "├", collapsed = "─", expanded = "╮", final_indent = " ", final_prefix = "╰", non_collapsible = "─" }
+--local straight_icons = { indent = "│", prefix = "├", collapsed = "─", expanded = "┐", final_indent = " ", final_prefix = "└", non_collapsible = "─" }
+
+local icon_set = double_icons
+
+local box_icons = {
+	indent = icon_set.indent,
+	prefix = icon_set.prefix,
+	collapsed = icon_set.collapsed,
+	expanded = icon_set.expanded,
+	final_indent = icon_set.final_indent,
+	final_prefix = icon_set.final_prefix,
+	non_collapsible = icon_set.non_collapsible,
+}
+
 neotest.setup {
 	adapters = {
 		require("neotest-deno"),
@@ -12,14 +39,14 @@ neotest.setup {
 		},
 	},
 	icons = {
-		child_indent = "│",
-		child_prefix = "├",
-		collapsed = "─",
-		expanded = "╮",
+		child_indent = box_icons.indent,
+		child_prefix = box_icons.prefix,
+		collapsed = box_icons.collapsed,
+		expanded = box_icons.expanded,
 		failed = "✘",
-		final_child_indent = " ",
-		final_child_prefix = "╰",
-		non_collapsible = "─",
+		final_child_indent = icon_set.final_indent,
+		final_child_prefix = icon_set.final_prefix,
+		non_collapsible = icon_set.non_collapsible,
 		passed = "✔",
 		running = "●",
 		running_animated = { "/", "|", "\\", "-", "/", "|", "\\", "-" },

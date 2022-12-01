@@ -19,7 +19,7 @@ vim.opt.showmode = false                        -- we don't need to see things l
 vim.opt.showtabline = 1                         -- always show tabs
 vim.opt.termguicolors = true
 
-vim.opt.smartindent = true                      -- make indenting smarter again
+vim.opt.smartindent = true                      -- make indenting smarter
 vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
 vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
 vim.opt.swapfile = false                        -- creates a swapfile
@@ -32,8 +32,9 @@ vim.opt.signcolumn = "yes"                      -- always show the sign column (
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 
+vim.opt.linebreak = true
+
 vim.opt.laststatus = 3
---vim.opt.winbar = "ASDF"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set iskeyword+=_"

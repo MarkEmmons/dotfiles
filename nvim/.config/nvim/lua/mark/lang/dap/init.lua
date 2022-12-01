@@ -3,13 +3,25 @@ if not dap_ok then
 	return
 end
 
+--- Adapters ---
+dap.adapters.nlua = function(callback, config)
+	callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
+end
+
 dap.adapters.lldb = {
 	type = 'executable',
 	command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
 	name = 'lldb'
 }
 
-local configurations = {
+--- Configurations ---
+dap.configurations.lua = {{
+	type = 'nlua',
+	request = 'attach',
+	name = "Attach to running Neovim instance",
+}}
+
+dap.configurations.rust = {{
 	name = 'Launch',
 	type = 'lldb',
 	request = 'launch',
@@ -19,9 +31,7 @@ local configurations = {
 	cwd = '${workspaceFolder}',
 	stopOnEntry = false,
 	args = {},
-}
-
-dap.configurations.rust = { configurations }
+}}
 
 -- Signs
 require("mark.lang.dap.signs")
