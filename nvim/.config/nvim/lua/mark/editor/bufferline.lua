@@ -72,32 +72,32 @@ end
 -- - Visible - Applies to buffers visible in inactive windows
 local hl = {
 
-	background        = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}), -- ?
+	background        = bl_expand_highlight({ fg = "TabLine", bg = "Normal"}), -- ?
 
 	buffer_selected = bl_expand_highlight({ fg = "TabLine", bg = "Normal"}),
-	buffer_visible  = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}),
+	buffer_visible  = bl_expand_highlight({ fg = "TabLine", bg = "Normal"}),
 
-	close_button          = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	close_button          = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
 	close_button_selected = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
-	close_button_visible  = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	close_button_visible  = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
 
-	duplicate          = bl_expand_highlight({ fg = "TabLine", bg = "TabLine", italic = true }),
-	duplicate_selected = bl_expand_highlight({ fg = "TabLine", bg = "TabLine", italic = true }),
-	duplicate_visible  = bl_expand_highlight({ fg = "TabLine", bg = "TabLine", italic = true }),
+	duplicate          = bl_expand_highlight({ fg = "TabLine", bg = "Normal", italic = true }),
+	duplicate_selected = bl_expand_highlight({ fg = "TabLine", bg = "Normal", italic = true }),
+	duplicate_visible  = bl_expand_highlight({ fg = "TabLine", bg = "Normal", italic = true }),
 
-	fill = bl_expand_highlight({ fg = "TabLine", bg = "TabLine"}),
+	fill = bl_expand_highlight({ fg = "TabLine", bg = "Normal"}),
 
 	indicator_selected = bl_expand_highlight({ fg = "LspDiagnosticsDefaultHint", bg = "Normal" }),
 
-	modified          = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	modified          = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
 	modified_selected = bl_expand_highlight({ fg = "Normal", bg = "Normal" }),
-	modified_visible  = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	modified_visible  = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
 
-	separator           = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	separator           = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
 	separator_selected  = bl_expand_highlight({ fg = "Normal", bg = "Normal" }),
-	--separator_visible = bl_expand_highlight({ fg = 'TabLine', bg = 'TabLine' }),
+	separator_visible = bl_expand_highlight({ fg = 'TabLine', bg = 'Normal' }),
 
-	tab          = bl_expand_highlight({ fg = "TabLine", bg = "TabLine" }),
+	tab          = bl_expand_highlight({ fg = "TabLine", bg = "Normal" }),
 	tab_selected = bl_expand_highlight({ fg = "Normal", bg = "Normal" }),
 	tab_close    = bl_expand_highlight({ fg = "TabLineSel", bg = "Normal" }),
 }
