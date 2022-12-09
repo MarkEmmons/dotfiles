@@ -14,6 +14,16 @@ dap.adapters.lldb = {
 	name = 'lldb'
 }
 
+dap.adapters.deno = {
+	type = 'executable',
+	command = 'node',
+	args = {os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js'},
+}
+
+--require("dap-vscode-js").setup({
+--	adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+--})
+
 --- Configurations ---
 dap.configurations.lua = {{
 	type = 'nlua',
@@ -32,6 +42,32 @@ dap.configurations.rust = {{
 	stopOnEntry = false,
 	args = {},
 }}
+
+for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
+	require("dap").configurations[language] = {
+		{
+			name = 'Deno',
+			type = 'deno',
+			request = 'launch',
+			cwd = '${workspaceFolder}',
+			runtimeExecutable = 'deno',
+			--runtimeArgs = { 'test', 'main.test.ts', '--allow-all', '--filter', 'hello world #1', '--inspect-brk' },
+			runtimeArgs = { 'run', '--inspect-brk', '--allow-all', "${file}" },
+			port = 9229,
+			protocol = 'inspector',
+		},
+		--{
+		--	request = 'launch',
+		--	name = 'Launch Program',
+		--	type = 'pwa-node',
+		--	cwd = '${workspaceFolder}',
+		--	program = '${file}',
+		--	runtimeExecutable = 'deno',
+		--	runtimeArgs = { 'run', '--inspect-brk', '--allow-all' },
+		--	attachSimplePort = 9229,
+		--},
+	}
+end
 
 -- Signs
 require("mark.lang.dap.signs")

@@ -52,8 +52,14 @@ return packer.startup(function(use)
 		requires = {
 			"rcarriga/nvim-dap-ui",
 			"jbyuki/one-small-step-for-vimkind",
+			--"mxsdev/nvim-dap-vscode-js",
 		},
 	}
+	--use {
+	--	"microsoft/vscode-js-debug",
+	--	opt = true,
+	--	run = "npm install --legacy-peer-deps && npm run compile",
+	--}
 
 	-- Nvim-Tree
 	use {
@@ -118,11 +124,11 @@ return packer.startup(function(use)
 
 			-- Adapters
 			--"rouge8/neotest-rust",
-			"~/workspace/Lua/neotest-rust",
-			"~/workspace/Lua/neotest-deno",
 			"nvim-neotest/neotest-plenary",
 		},
 	}
+	use "~/workspace/Lua/neotest-rust"
+	use "~/workspace/Lua/neotest-deno"
 
 	-- Autopairs
 	use "windwp/nvim-autopairs"

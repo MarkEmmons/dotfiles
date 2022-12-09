@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 --[[
- 	0	1	2	3	4	5	6	7	8	9	A	B	C	D	E	F
+		0	1	2	3	4	5	6	7	8	9	A	B	C	D	E	F
 U+250x	─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏
 U+251x	┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟
 U+252x	┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯
@@ -32,7 +32,13 @@ local box_icons = {
 
 neotest.setup {
 	adapters = {
-		require("neotest-deno"),
+		require("neotest-deno") {
+			--args = { "--coverage=.cov" },
+			--allow = { "--allow-read" },
+			root_files = { "fresh.gen.ts", "dev.ts" },
+			filter_dirs = { "static" },
+			--dap_adapter = "pwa-node",
+		},
 		require("neotest-plenary"),
 		require("neotest-rust") {
 			args = { "--no-capture" },
