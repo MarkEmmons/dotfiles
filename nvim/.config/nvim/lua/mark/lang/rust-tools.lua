@@ -3,13 +3,17 @@ if not rust_ok then
 	return
 end
 
-rt.setup({
+local extension_path = vim.env.HOME .. '/.vscode-oss/extensions/vadimcn.vscode-lldb-1.8.1-universal'
+local codelldb_path = extension_path .. '/adapter/codelldb'
+local liblldb_path = extension_path .. '/lldb/lib/liblldb.so'
 
+local opts = {
+
+	dap = {
+		adapter = require('rust-tools.dap')
+			.get_codelldb_adapter(codelldb_path, liblldb_path)
+	},
 	server = {
-
-		inlay_hints = {
-			auto = false,	-- Doesn't work :/
-		},
 
 		on_attach = function(client, bufnr)
 
@@ -26,8 +30,12 @@ rt.setup({
 			keymap(bufnr, "n", "<Leader>4", "<cmd>RustUnsetInlayHints<CR>", opts)
 		end,
 	},
-})
+	tools = {
 
--- These don't do anything
-rt.inlay_hints.disable()
-rt.inlay_hints.unset()
+		inlay_hints = {
+			auto = false,	-- Doesn't work :/
+		},
+	},
+}
+
+rt.setup(opts)
