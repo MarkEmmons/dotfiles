@@ -26,6 +26,10 @@ keymap("n", "<leader>q", "q", opts)
 keymap("n", "q", ":lclose<CR>", opts)
 keymap("n", "Q", ":cclose<CR>", opts)
 
+-- Split current window
+keymap("n", "<leader>v", ":vsplit<cr>", opts)
+keymap("n", "<leader>s", ":split<cr>", opts)
+
 -- Better Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
