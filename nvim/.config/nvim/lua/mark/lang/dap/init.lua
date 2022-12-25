@@ -20,9 +20,9 @@ dap.adapters.deno = {
 	args = {os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js'},
 }
 
---require("dap-vscode-js").setup({
---	adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
---})
+require("dap-vscode-js").setup({
+	adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+})
 
 --- Configurations ---
 dap.configurations.lua = {{
@@ -45,27 +45,29 @@ dap.configurations.rust = {{
 
 for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
 	require("dap").configurations[language] = {
+		--{
+		--	name = 'Deno',
+		--	type = 'deno',
+		--	request = 'launch',
+		--	cwd = '${workspaceFolder}',
+		--	runtimeExecutable = 'deno',
+		--	--runtimeArgs = { 'test', 'main.test.ts', '--allow-all', '--filter', 'hello world #1', '--inspect-brk' },
+		--	runtimeArgs = { 'run', '--inspect-brk', '--allow-all', "${file}" },
+		--	port = 9229,
+		--	protocol = 'inspector',
+		--},
 		{
-			name = 'Deno',
-			type = 'deno',
 			request = 'launch',
+			name = 'Launch Program',
+			type = 'pwa-node',
+			program = '${file}',
+			--env
 			cwd = '${workspaceFolder}',
 			runtimeExecutable = 'deno',
-			--runtimeArgs = { 'test', 'main.test.ts', '--allow-all', '--filter', 'hello world #1', '--inspect-brk' },
-			runtimeArgs = { 'run', '--inspect-brk', '--allow-all', "${file}" },
-			port = 9229,
-			protocol = 'inspector',
+			--runtimeArgs = { 'run', '--inspect-brk', '--allow-all' },
+			runtimeArgs = { 'test', '${file}', '--allow-all', '--filter', 'helloWorld3', '--inspect-brk' },
+			attachSimplePort = 9229,
 		},
-		--{
-		--	request = 'launch',
-		--	name = 'Launch Program',
-		--	type = 'pwa-node',
-		--	cwd = '${workspaceFolder}',
-		--	program = '${file}',
-		--	runtimeExecutable = 'deno',
-		--	runtimeArgs = { 'run', '--inspect-brk', '--allow-all' },
-		--	attachSimplePort = 9229,
-		--},
 	}
 end
 

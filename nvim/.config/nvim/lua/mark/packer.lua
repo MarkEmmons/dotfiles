@@ -52,7 +52,7 @@ return packer.startup(function(use)
 		requires = {
 			"rcarriga/nvim-dap-ui",
 			"jbyuki/one-small-step-for-vimkind",
-			--"mxsdev/nvim-dap-vscode-js",
+			"mxsdev/nvim-dap-vscode-js",
 		},
 	}
 	--use {
@@ -111,6 +111,7 @@ return packer.startup(function(use)
 		"simrat39/rust-tools.nvim",
 	}
 	use 'simrat39/symbols-outline.nvim'
+	--use 'vadimcn/vscode-lldb'
 
 	-- Neotest
 	use {
@@ -123,11 +124,11 @@ return packer.startup(function(use)
 			"antoinemadec/FixCursorHold.nvim",
 
 			-- Adapters
-			--"rouge8/neotest-rust",
+			"rouge8/neotest-rust",
 			"nvim-neotest/neotest-plenary",
 		},
 	}
-	use "~/workspace/Lua/neotest-rust"
+	--use "~/workspace/Lua/neotest-rust"
 	use "~/workspace/Lua/neotest-deno"
 
 	-- Autopairs
