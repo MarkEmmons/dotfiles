@@ -1,5 +1,0 @@
-require "mark.opts"
-require "mark.packer"
-require "mark.lang"
-require "mark.editor"
-require "mark.git"
