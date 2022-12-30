@@ -1,0 +1,9 @@
+[alias]
+	stat = 'status -uall'
+[user]
+	email = MarkAndreasEmmons@gmail.com
+	name = Mark A Emmons
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim

@@ -1,0 +1,26 @@
+[admiral]
+items = ["ip_address", "updates", "memory", "battery", "volume", "clock"]
+
+[ip_address]
+path = "./swaybar.sh -i"
+reload = 1
+
+[updates]
+path = "./swaybar.sh -u"
+reload = 10
+
+[memory]
+path = "./swaybar.sh -m"
+reload = 1
+
+[battery]
+path = "./swaybar.sh -b"
+reload = 0.5
+
+[volume]
+path = "./swaybar.sh -v"
+reload = 0.1
+
+[clock]
+path = "./swaybar.sh -c"
+reload = 0.1

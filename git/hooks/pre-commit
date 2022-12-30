@@ -1,8 +1,0 @@
-#!/bin/sh
-
-branch="$(git rev-parse --abbrev-ref HEAD)"
-
-if [ "$branch" = "main" ]; then
-	echo "PRE-COMMIT: Committing directly to $branch is disabled"
-	exit 1
-fi

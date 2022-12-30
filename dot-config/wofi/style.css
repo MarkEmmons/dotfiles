@@ -1,0 +1,46 @@
+*{
+    font-family: monospace;
+}
+
+window {
+    background-color: #a2a9aa; /*border*/
+}
+
+#input {
+    margin: 5px;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: #333D42;/*background*/
+    color: white;
+}
+
+#inner-box {
+    background-color: #333D42;
+
+}
+
+#outer-box {
+    margin: 5px;
+    padding:20px;
+    background-color: #333D42;
+}
+
+#scroll {
+}
+
+#text {
+padding: 5px;
+color: white;
+}
+
+#entry:nth-child(even){
+    background-color: #485355;/*alt_line*/
+}
+
+#entry:selected {
+    background-color: #696a5f;/*highlight*/
+}
+
+#text:selected {
+}

@@ -1,5 +1,5 @@
 configuration {
-	font: "hack 32";
+	font: "hack 24";
 }
 
 @theme "paper-float"

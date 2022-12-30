@@ -71,7 +71,7 @@ if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]
 fi
 
 ## Quickly navigate to my neovim config
-alias cdv="cd $HOME/workspace/dotfiles/nvim/.config/nvim/"
+alias cdv="cd $HOME/workspace/nix/nvira/"
 alias cdp="cd $HOME/.local/share/nvim/site/pack/packer/start/"
 
 
