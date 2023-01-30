@@ -25,10 +25,10 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo archlinux tmux python)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:$HOME/dotfiles/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:$HOME/.config/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
-PATH=$PATH:$HOME/.cargo/bin:$HOME/workspace/dotfiles/bin
+PATH=$PATH:$HOME/.cargo/bin:$HOME/workspace/dotfiles/bin:$HOME/workspace/nix/arch
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,7 +86,7 @@ zle -N prepend-sudo
   bindkey "$keyinfo[Control]s" prepend-sudo
 
 ## Start tmux in xterm
-[[ "$TERM" = "alacritty" ]] && exec tmux
+[[ "$TERM" = "foot" ]] && exec tmux
 #[[ "$TERM" = "linux" ]] && alien_theme
 
 ## copy with a progress bar.
