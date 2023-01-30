@@ -16,7 +16,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term alacritty
+set $term foot
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -33,9 +33,6 @@ set $mute amixer -D pulse set Master toggle && amixer sset Headphone toggle
 # Brightness
 set $brightnessUp echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 20)) >> /sys/class/backlight/intel_backlight/brightness
 set $brightnessDown echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 20)) >> /sys/class/backlight/intel_backlight/brightness
-
-# Bar
-set $toggleBar killall yambar || yambar
 
 ### Output configuration
 #
