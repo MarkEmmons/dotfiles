@@ -23,7 +23,7 @@ set $term foot
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #set $menu rofi -show drun | xargs swaymsg exec --
-set $menu wofi --show=drun | xargs swaymsg exec --
+set $menu fuzzel | xargs swaymsg exec --
 
 # Volume
 set $raiseVolume amixer sset Master 1+
@@ -231,7 +231,6 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-exec_always killall yambar
-exec_always yambar
+exec_always sh -c "killall yambar; yambar &"
 
 include /etc/sway/config.d/*
