@@ -74,6 +74,8 @@ fi
 alias cdv="cd $HOME/workspace/nix/nvira/"
 alias cdp="cd $HOME/.local/share/nvim/site/pack/packer/start/"
 
+# Stardew Valley
+alias sdv="cd $HOME/.steam/steam/steamapps/common/Stardew\ Valley"
 
 ## alt-S inserts sudo
 function prepend-sudo {
@@ -287,3 +289,5 @@ showINC ()    { perl -e 'for (@INC) { printf "%d %s\n", $i++, $_ }' }
 vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
+source /usr/share/fzf/completion.zsh 
+source /usr/share/fzf/key-bindings.zsh 
