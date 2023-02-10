@@ -227,6 +227,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Special Rules:
+#
+for_window [app_id="blueman-manager"] floating enable
+
+#
 # Status Bar:
 #
 exec_always sh -c "killall yambar; yambar &"
