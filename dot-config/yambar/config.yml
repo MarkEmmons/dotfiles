@@ -193,7 +193,7 @@ bar:
                       - string: {text: " ", font: *awesome, foreground: ffffff66}
                       - string: {text: "{ssid} {dl-speed:mb}/{ul-speed:mb} Mb/s", foreground: ffffff66}
     - alsa:
-        card: sof-hda-dsp
+        card: default:0
         mixer: Master
         content:
           map:
